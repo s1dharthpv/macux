@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=MacUX Control Center
+Comment=Quick access to system settings — Wi-Fi, Bluetooth, volume, brightness
+Exec=python3 -m control_center
+Icon=macux-control-center
+Categories=System;Settings;
+NoDisplay=true
+StartupNotify=false
+X-GNOME-AutoRestart=true

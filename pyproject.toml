@@ -1,0 +1,80 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "macux"
+version = "1.0.0"
+description = "macOS-inspired desktop environment layer for Ubuntu 24.04"
+readme = "README.md"
+license = { text = "GPL-3.0-or-later" }
+authors = [{ name = "Sidharth Thamban", email = "sidharth.thamban@gmail.com" }]
+requires-python = ">=3.12"
+keywords = ["desktop", "gnome", "gtk4", "macos", "ubuntu", "theme"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: X11 Applications :: GTK",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Desktop Environment",
+]
+dependencies = [
+    "PyGObject>=3.48.0",
+    "dasbus>=1.6.0",
+    "tomli_w>=1.0.0",
+    "watchdog>=4.0.0",
+    "Whoosh>=2.7.4",
+    "pulsectl>=23.5.0",
+    "Pillow>=10.0.0",
+    "appdirs>=1.4.4",
+]
+
+[project.scripts]
+macuxd      = "macuxd.daemon:main"
+macux-index = "spotlight.indexer:main"
+macux-ctl   = "macuxd.ctl:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "pytest-mock>=3.12",
+    "black>=24.0",
+    "ruff>=0.4",
+    "mypy>=1.10",
+]
+
+[tool.setuptools.packages.find]
+include = [
+    "macuxd*",
+    "dock*",
+    "spotlight*",
+    "launchpad*",
+    "mission_control*",
+    "menu_bar*",
+    "notification_center*",
+    "control_center*",
+    "finder*",
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+select = ["E", "F", "I", "N", "UP", "B", "C4", "SIM"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=. --cov-report=term-missing -v"

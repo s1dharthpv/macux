@@ -1,0 +1,10 @@
+{
+  "uuid": "macux-shell@macux.com",
+  "name": "MacUX Shell Integration",
+  "description": "MacUX menu bar, mission control, global shortcuts, and system tray integration for GNOME Shell 46.",
+  "version": 1,
+  "shell-version": ["46"],
+  "url": "https://github.com/macux/macux",
+  "settings-schema": "org.gnome.shell.extensions.macux",
+  "gettext-domain": "macux-shell"
+}

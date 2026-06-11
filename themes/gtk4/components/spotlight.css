@@ -1,0 +1,209 @@
+/*
+ * MacUX Spotlight CSS
+ * Centered overlay search panel — appears on Super+Space.
+ */
+
+/* ── Spotlight window ─────────────────────────────────────────────────────── */
+
+.macux-spotlight-window {
+  background-color: transparent;
+}
+
+/* ── Overlay backdrop ─────────────────────────────────────────────────────── */
+
+.macux-spotlight-backdrop {
+  background-color: rgba(0, 0, 0, 0.30);
+  animation: macux-fade-in var(--macux-dur-fast) ease both;
+}
+
+/* ── Main panel ───────────────────────────────────────────────────────────── */
+
+.macux-spotlight-panel {
+  background-color: @macux_spotlight_bg;
+  border: 1px solid @macux_glass_border;
+  border-radius: var(--macux-spotlight-radius);
+  box-shadow: var(--macux-shadow-xl);
+  min-width: var(--macux-spotlight-width);
+  max-width: var(--macux-spotlight-width);
+  overflow: hidden;
+
+  animation: macux-spotlight-open var(--macux-dur-normal) var(--macux-ease-spring) both;
+}
+
+.macux-spotlight-panel.closing {
+  animation: macux-spotlight-close var(--macux-dur-fast) var(--macux-ease-in-out) both;
+}
+
+/* ── Search entry ─────────────────────────────────────────────────────────── */
+
+.macux-spotlight-search-row {
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid @macux_separator;
+}
+
+.macux-spotlight-search-icon {
+  color: @macux_text_secondary;
+  margin-right: var(--macux-space-2);
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.macux-spotlight-entry {
+  background-color: transparent;
+  border: none;
+  font-size: 22pt;
+  font-weight: var(--macux-weight-regular);
+  color: @macux_text_primary;
+  padding: 0;
+  min-height: auto;
+  caret-color: @macux_accent;
+}
+
+.macux-spotlight-entry:focus {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.macux-spotlight-entry placeholder {
+  color: @macux_text_tertiary;
+  font-weight: var(--macux-weight-regular);
+}
+
+/* ── Results list ─────────────────────────────────────────────────────────── */
+
+.macux-spotlight-results {
+  background-color: transparent;
+  padding: var(--macux-space-2) var(--macux-space-2);
+  max-height: 420px;
+}
+
+/* ── Category header ──────────────────────────────────────────────────────── */
+
+.macux-spotlight-category {
+  font-size: 11pt;
+  font-weight: var(--macux-weight-semibold);
+  color: @macux_spotlight_cat_text;
+  letter-spacing: var(--macux-tracking-wide);
+  text-transform: uppercase;
+  padding: 10px 12px 4px;
+}
+
+/* ── Result row ───────────────────────────────────────────────────────────── */
+
+.macux-spotlight-result {
+  border-radius: var(--macux-radius-md);
+  padding: 7px 10px;
+  min-height: 52px;
+  transition: background-color var(--macux-dur-instant) var(--macux-ease-out);
+  animation: macux-fade-in-up var(--macux-dur-fast) var(--macux-ease-out) both;
+}
+
+.macux-spotlight-result:hover,
+.macux-spotlight-result:selected {
+  background-color: @macux_accent;
+}
+
+.macux-spotlight-result:hover .macux-spotlight-result-name,
+.macux-spotlight-result:selected .macux-spotlight-result-name {
+  color: #ffffff;
+}
+
+.macux-spotlight-result:hover .macux-spotlight-result-subtitle,
+.macux-spotlight-result:selected .macux-spotlight-result-subtitle {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Result icon */
+.macux-spotlight-result-icon {
+  min-width: var(--macux-spotlight-icon-size);
+  min-height: var(--macux-spotlight-icon-size);
+  border-radius: 20%;
+  margin-right: var(--macux-space-3);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+/* Result text */
+.macux-spotlight-result-name {
+  font-size: var(--macux-font-size);
+  font-weight: var(--macux-weight-medium);
+  color: @macux_text_primary;
+}
+
+.macux-spotlight-result-subtitle {
+  font-size: var(--macux-font-sm);
+  color: @macux_text_secondary;
+  margin-top: 1px;
+}
+
+/* Keyboard shortcut hint on selected result */
+.macux-spotlight-result-action {
+  font-size: var(--macux-font-sm);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ── Calculator result ────────────────────────────────────────────────────── */
+
+.macux-spotlight-calculator {
+  padding: 16px 20px;
+  border-top: 1px solid @macux_separator;
+}
+
+.macux-spotlight-calc-expression {
+  font-size: 14pt;
+  color: @macux_text_secondary;
+  font-family: var(--macux-font-mono);
+}
+
+.macux-spotlight-calc-result {
+  font-size: 32pt;
+  font-weight: var(--macux-weight-light);
+  color: @macux_text_primary;
+  letter-spacing: var(--macux-tracking-tight);
+}
+
+/* ── Preview panel (right side, shows for file/app results) ───────────────── */
+
+.macux-spotlight-preview {
+  background-color: @macux_spotlight_input_bg;
+  border-left: 1px solid @macux_separator;
+  padding: var(--macux-space-6);
+  min-width: 220px;
+  border-radius: 0 var(--macux-spotlight-radius) var(--macux-spotlight-radius) 0;
+}
+
+.macux-spotlight-preview-icon {
+  min-width: 80px;
+  min-height: 80px;
+  border-radius: 18%;
+  box-shadow: var(--macux-shadow-md);
+}
+
+.macux-spotlight-preview-name {
+  font-size: var(--macux-font-lg);
+  font-weight: var(--macux-weight-semibold);
+  color: @macux_text_primary;
+  margin-top: var(--macux-space-3);
+}
+
+.macux-spotlight-preview-meta {
+  font-size: var(--macux-font-sm);
+  color: @macux_text_secondary;
+}
+
+/* ── Empty state ──────────────────────────────────────────────────────────── */
+
+.macux-spotlight-empty {
+  padding: var(--macux-space-8) var(--macux-space-6);
+  color: @macux_text_tertiary;
+  font-size: var(--macux-font-size);
+}
+
+/* ── Bottom bar (web search hint) ────────────────────────────────────────── */
+
+.macux-spotlight-footer {
+  padding: 8px 16px;
+  border-top: 1px solid @macux_separator;
+  font-size: 11pt;
+  color: @macux_text_tertiary;
+}

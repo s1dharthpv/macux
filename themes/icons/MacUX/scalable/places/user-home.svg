@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- macOS-style Home folder icon -->
+  <defs>
+    <linearGradient id="folderGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#62b3f9"/>
+      <stop offset="100%" style="stop-color:#1a7ed4"/>
+    </linearGradient>
+    <linearGradient id="tabGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7ec4fc"/>
+      <stop offset="100%" style="stop-color:#3898e8"/>
+    </linearGradient>
+  </defs>
+  <!-- Folder tab -->
+  <path d="M 48 200 Q 48 160 88 160 L 220 160 Q 245 160 252 185 L 260 210 L 464 210 Q 464 210 464 210 L 464 400 Q 464 440 424 440 L 88 440 Q 48 440 48 400 Z"
+        fill="url(#folderGrad)"/>
+  <!-- Folder tab highlight -->
+  <path d="M 48 200 Q 48 160 88 160 L 220 160 Q 245 160 252 185 L 258 205 L 48 205 Z"
+        fill="url(#tabGrad)" opacity="0.9"/>
+  <!-- Home icon overlay -->
+  <g transform="translate(256, 320)" fill="white" opacity="0.95">
+    <path d="M 0 -60 L 65 -10 L 65 55 L 40 55 L 40 10 L -40 10 L -40 55 L -65 55 L -65 -10 Z"/>
+    <path d="M -80 -15 L 0 -72 L 80 -15 L 70 -15 L 0 -60 L -70 -15 Z"/>
+  </g>
+</svg>

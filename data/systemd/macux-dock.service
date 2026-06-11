@@ -1,0 +1,21 @@
+[Unit]
+Description=MacUX Dock
+Documentation=https://github.com/macux/macux
+PartOf=graphical-session.target
+After=graphical-session.target macux.service
+Requires=dbus.socket
+
+[Service]
+Type=dbus
+BusName=com.macux.Dock
+ExecStart=python3 -m dock
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=10
+Environment=PYTHONUNBUFFERED=1
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=macux-dock
+
+[Install]
+WantedBy=graphical-session.target

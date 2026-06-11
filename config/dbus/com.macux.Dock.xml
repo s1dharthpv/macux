@@ -1,0 +1,58 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+ "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/com/macux/Dock">
+  <interface name="com.macux.Dock">
+    <annotation name="org.freedesktop.DBus.Description"
+                value="MacUX Dock — application launcher and window switcher"/>
+
+    <method name="Show"/>
+    <method name="Hide"/>
+    <method name="Toggle"/>
+
+    <method name="PinApp">
+      <arg name="desktop_id" type="s" direction="in"/>
+      <arg name="position" type="i" direction="in"/>
+    </method>
+    <method name="UnpinApp">
+      <arg name="desktop_id" type="s" direction="in"/>
+    </method>
+    <method name="GetPinnedApps">
+      <arg name="apps" type="as" direction="out"/>
+    </method>
+    <method name="MovePinnedApp">
+      <arg name="desktop_id" type="s" direction="in"/>
+      <arg name="new_position" type="i" direction="in"/>
+    </method>
+
+    <method name="SetPosition">
+      <arg name="position" type="s" direction="in"/>
+      <annotation name="org.freedesktop.DBus.Description" value="position: bottom|left|right"/>
+    </method>
+    <method name="SetIconSize">
+      <arg name="size" type="i" direction="in"/>
+    </method>
+
+    <method name="BounceApp">
+      <arg name="desktop_id" type="s" direction="in"/>
+      <arg name="type" type="s" direction="in"/>
+      <annotation name="org.freedesktop.DBus.Description" value="type: launch|alert|once"/>
+    </method>
+
+    <signal name="AppPinned">
+      <arg name="desktop_id" type="s"/>
+      <arg name="position" type="i"/>
+    </signal>
+    <signal name="AppUnpinned">
+      <arg name="desktop_id" type="s"/>
+    </signal>
+    <signal name="VisibilityChanged">
+      <arg name="visible" type="b"/>
+    </signal>
+
+    <property name="AutoHide" type="b" access="readwrite"/>
+    <property name="IconSize" type="i" access="readwrite"/>
+    <property name="Position" type="s" access="readwrite"/>
+    <property name="Visible" type="b" access="read"/>
+    <property name="Magnification" type="b" access="readwrite"/>
+  </interface>
+</node>

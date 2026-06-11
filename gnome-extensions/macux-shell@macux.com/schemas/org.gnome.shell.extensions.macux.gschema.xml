@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+
+  <schema id="org.gnome.shell.extensions.macux"
+          path="/org/gnome/shell/extensions/macux/">
+
+    <!-- ── Global appearance ──────────────────────────────────────────────── -->
+
+    <key name="theme-variant" type="s">
+      <default>'auto'</default>
+      <summary>Theme variant</summary>
+      <description>
+        Controls whether the MacUX theme follows the system colour scheme or
+        is forced to a specific variant. Valid values: 'auto', 'light', 'dark'.
+      </description>
+    </key>
+
+    <key name="accent-color" type="s">
+      <default>'#0071e3'</default>
+      <summary>Accent colour</summary>
+      <description>
+        Hex colour string used as the primary accent throughout the MacUX
+        theme (buttons, focus rings, active states). Example: '#0071e3'.
+      </description>
+    </key>
+
+    <!-- ── Dock ───────────────────────────────────────────────────────────── -->
+
+    <key name="dock-position" type="s">
+      <default>'bottom'</default>
+      <summary>Dock screen edge</summary>
+      <description>
+        Which screen edge the Dock attaches to.
+        Valid values: 'bottom', 'left', 'right'.
+      </description>
+    </key>
+
+    <key name="dock-icon-size" type="i">
+      <range min="32" max="128"/>
+      <default>56</default>
+      <summary>Dock icon size (px)</summary>
+      <description>Base icon size in pixels. Magnification adds up to 30 % on top.</description>
+    </key>
+
+    <key name="dock-autohide" type="b">
+      <default>true</default>
+      <summary>Auto-hide the Dock</summary>
+      <description>
+        When true, the Dock slides off-screen when a window covers it and
+        reappears when the cursor approaches the screen edge.
+      </description>
+    </key>
+
+    <key name="dock-magnification" type="b">
+      <default>true</default>
+      <summary>Icon magnification on hover</summary>
+      <description>
+        When true, icons near the cursor grow proportionally as the cursor
+        approaches them (macOS-style Dock magnification).
+      </description>
+    </key>
+
+    <!-- ── Menu bar ───────────────────────────────────────────────────────── -->
+
+    <key name="menu-bar-enabled" type="b">
+      <default>true</default>
+      <summary>Show global menu bar</summary>
+      <description>
+        When true, the GNOME Shell top panel is replaced by the MacUX global
+        menu bar which shows the focused application's menu.
+      </description>
+    </key>
+
+    <!-- ── Keyboard shortcuts ─────────────────────────────────────────────── -->
+
+    <key name="macux-spotlight" type="as">
+      <default>['&lt;Super&gt;space']</default>
+      <summary>Spotlight search shortcut</summary>
+      <description>Keyboard shortcut to open Spotlight search.</description>
+    </key>
+
+    <key name="macux-launchpad" type="as">
+      <default>['F4']</default>
+      <summary>Launchpad shortcut</summary>
+      <description>Keyboard shortcut to open the Launchpad app grid.</description>
+    </key>
+
+    <key name="macux-mission-control" type="as">
+      <default>['&lt;Super&gt;Up']</default>
+      <summary>Mission Control shortcut</summary>
+      <description>Keyboard shortcut to show Mission Control (all windows).</description>
+    </key>
+
+    <key name="macux-notification-center" type="as">
+      <default>['&lt;Super&gt;n']</default>
+      <summary>Notification Center shortcut</summary>
+      <description>Keyboard shortcut to open the Notification Center panel.</description>
+    </key>
+
+    <key name="macux-control-center" type="as">
+      <default>['&lt;Super&gt;&lt;Shift&gt;c']</default>
+      <summary>Control Center shortcut</summary>
+      <description>Keyboard shortcut to open the Control Center panel.</description>
+    </key>
+
+    <key name="macux-show-desktop" type="as">
+      <default>['&lt;Super&gt;d']</default>
+      <summary>Show desktop shortcut</summary>
+      <description>Keyboard shortcut to minimise all windows and show the desktop.</description>
+    </key>
+
+  </schema>
+
+</schemalist>

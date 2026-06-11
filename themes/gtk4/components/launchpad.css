@@ -1,0 +1,194 @@
+/*
+ * MacUX Launchpad CSS
+ * Fullscreen app launcher with semi-transparent blurred background.
+ */
+
+/* ── Launchpad window (fullscreen, no decoration) ─────────────────────────── */
+
+.macux-launchpad-window {
+  background-color: @macux_launchpad_bg;
+  animation: macux-launchpad-open var(--macux-dur-normal) var(--macux-ease-out) both;
+}
+
+.macux-launchpad-window.closing {
+  animation: macux-fade-out var(--macux-dur-fast) var(--macux-ease-in-out) both;
+}
+
+/* ── Search bar at top ────────────────────────────────────────────────────── */
+
+.macux-launchpad-search-row {
+  padding: 24px 0 16px;
+}
+
+.macux-launchpad-search-entry {
+  background-color: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  border-radius: var(--macux-radius-full);
+  color: #ffffff;
+  font-size: var(--macux-font-size);
+  padding: 7px 16px;
+  min-width: 240px;
+  transition:
+    background-color var(--macux-dur-fast) var(--macux-ease-out),
+    min-width var(--macux-dur-normal) var(--macux-ease-spring);
+}
+
+.macux-launchpad-search-entry:focus {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.50);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
+  min-width: 320px;
+  outline: none;
+}
+
+.macux-launchpad-search-entry placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ── Page carousel ────────────────────────────────────────────────────────── */
+
+.macux-launchpad-carousel {
+  background-color: transparent;
+}
+
+/* ── App page (one grid per carousel page) ────────────────────────────────── */
+
+.macux-launchpad-page {
+  padding: var(--macux-space-5) var(--macux-space-12);
+}
+
+/* ── Individual app icon ──────────────────────────────────────────────────── */
+
+.macux-launchpad-app {
+  background-color: transparent;
+  border: none;
+  border-radius: var(--macux-radius-md);
+  padding: var(--macux-space-2);
+  min-width: 96px;
+  min-height: 96px;
+  margin: var(--macux-space-3);
+  transition: transform var(--macux-dur-fast) var(--macux-ease-spring);
+  animation: macux-launchpad-icon-in var(--macux-dur-normal) var(--macux-ease-spring) both;
+}
+
+.macux-launchpad-app:hover {
+  transform: scale(1.08);
+}
+
+.macux-launchpad-app:active {
+  transform: scale(0.94);
+}
+
+.macux-launchpad-app.removing {
+  animation: macux-launchpad-icon-out var(--macux-dur-fast) var(--macux-ease-in-out) both;
+}
+
+/* App icon image */
+.macux-launchpad-app-icon {
+  min-width: 64px;
+  min-height: 64px;
+  border-radius: 22%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.30);
+}
+
+/* App name label */
+.macux-launchpad-app-label {
+  font-size: 12pt;
+  font-weight: var(--macux-weight-medium);
+  color: @macux_launchpad_label;
+  margin-top: var(--macux-space-2);
+  /* Text shadow for readability over any background */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.60);
+}
+
+/* ── Folder ───────────────────────────────────────────────────────────────── */
+
+.macux-launchpad-folder {
+  background-color: @macux_launchpad_folder_bg;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  border-radius: 22%;
+  min-width: 64px;
+  min-height: 64px;
+  overflow: hidden;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: transform var(--macux-dur-fast) var(--macux-ease-spring);
+}
+
+.macux-launchpad-folder:hover {
+  transform: scale(1.08);
+}
+
+/* Mini app icons inside folder */
+.macux-launchpad-folder-icon {
+  min-width: 18px;
+  min-height: 18px;
+  border-radius: 4px;
+  margin: 1px;
+}
+
+/* Folder open animation */
+.macux-launchpad-folder-window {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  border-radius: var(--macux-radius-xl);
+  box-shadow: var(--macux-shadow-xl);
+  padding: var(--macux-space-6);
+  animation: macux-zoom-in var(--macux-dur-normal) var(--macux-ease-spring) both;
+}
+
+/* Folder name (editable) */
+.macux-launchpad-folder-name {
+  font-size: 13pt;
+  font-weight: var(--macux-weight-semibold);
+  color: @macux_launchpad_label;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.60);
+  margin-bottom: var(--macux-space-3);
+}
+
+/* ── Page indicator dots ──────────────────────────────────────────────────── */
+
+.macux-launchpad-dots {
+  padding: var(--macux-space-3) 0 var(--macux-space-6);
+}
+
+.macux-launchpad-dot {
+  min-width: 7px;
+  min-height: 7px;
+  border-radius: var(--macux-radius-full);
+  background-color: @macux_launchpad_dot;
+  margin: 0 3px;
+  transition:
+    background-color var(--macux-dur-fast) var(--macux-ease-out),
+    min-width var(--macux-dur-fast) var(--macux-ease-spring);
+}
+
+.macux-launchpad-dot.active {
+  background-color: @macux_launchpad_dot_active;
+  min-width: 18px;
+}
+
+/* ── Jiggle mode (when rearranging apps) ─────────────────────────────────── */
+
+.macux-launchpad-app.jiggle {
+  animation: macux-launchpad-jiggle 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes macux-launchpad-jiggle {
+  from { transform: rotate(-3deg) scale(1.0); }
+  to   { transform: rotate(3deg)  scale(1.0); }
+}
+
+/* Delete badge in jiggle mode */
+.macux-launchpad-delete-btn {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: var(--macux-radius-full);
+  border: 1.5px solid #ffffff;
+  min-width: 20px;
+  min-height: 20px;
+  font-size: 12pt;
+  font-weight: var(--macux-weight-bold);
+  padding: 0;
+  line-height: 1;
+}

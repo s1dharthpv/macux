@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.macux-mission-control"
+          path="/org/gnome/shell/extensions/macux-mission-control/">
+
+    <key name="toggle-shortcut" type="as">
+      <default><![CDATA[['<Super>F3']]]></default>
+      <summary>Mission Control toggle shortcut</summary>
+      <description>Keyboard shortcut to toggle Mission Control window spread.</description>
+    </key>
+
+    <key name="hot-corner-enabled" type="b">
+      <default>true</default>
+      <summary>Enable hot corner</summary>
+      <description>Trigger Mission Control by moving the pointer to the top-left corner.</description>
+    </key>
+
+    <key name="animation-duration-ms" type="i">
+      <default>220</default>
+      <summary>Animation duration (ms)</summary>
+      <description>Duration of the window-spread and restore animations in milliseconds.</description>
+    </key>
+
+    <key name="show-window-titles" type="b">
+      <default>true</default>
+      <summary>Show window titles</summary>
+      <description>Display window title labels beneath each thumbnail in Mission Control.</description>
+    </key>
+
+  </schema>
+</schemalist>

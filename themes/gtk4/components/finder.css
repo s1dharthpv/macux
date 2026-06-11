@@ -1,0 +1,337 @@
+/*
+ * MacUX Finder CSS
+ * macOS-style file manager with sidebar, content area, and preview panel.
+ */
+
+/* ── Main window ──────────────────────────────────────────────────────────── */
+
+.macux-finder-window {
+  background-color: @macux_bg_primary;
+}
+
+/* ── Toolbar ──────────────────────────────────────────────────────────────── */
+
+.macux-finder-toolbar {
+  background-color: @macux_glass_bg_strong;
+  border-bottom: 1px solid @macux_separator;
+  padding: 6px 12px;
+  min-height: 52px;
+}
+
+/* Navigation buttons (back / forward) */
+.macux-finder-nav-btn {
+  background-color: transparent;
+  border: none;
+  border-radius: var(--macux-radius-sm);
+  padding: 5px 7px;
+  color: @macux_text_primary;
+}
+
+.macux-finder-nav-btn:disabled {
+  color: @macux_text_disabled;
+}
+
+.macux-finder-nav-btn:hover {
+  background-color: @macux_bg_hover;
+}
+
+/* View switcher (icon/list/column/gallery) */
+.macux-finder-view-btn {
+  background-color: @macux_bg_tertiary;
+  border: 1px solid @macux_border;
+  border-radius: var(--macux-radius-sm);
+  padding: 4px 8px;
+  font-size: var(--macux-font-sm);
+  color: @macux_text_secondary;
+}
+
+.macux-finder-view-btn.active {
+  background-color: @macux_bg_secondary;
+  color: @macux_text_primary;
+  box-shadow: var(--macux-shadow-xs);
+}
+
+/* Search entry in toolbar */
+.macux-finder-search {
+  background-color: @macux_bg_hover;
+  border: 1px solid @macux_border;
+  border-radius: var(--macux-radius-full);
+  padding: 5px 12px;
+  min-width: 200px;
+  font-size: var(--macux-font-size);
+}
+
+.macux-finder-search:focus {
+  min-width: 260px;
+  background-color: @macux_bg_secondary;
+  border-color: @macux_accent;
+  box-shadow: 0 0 0 3px @macux_accent_subtle;
+  outline: none;
+}
+
+/* ── Sidebar ──────────────────────────────────────────────────────────────── */
+
+.macux-finder-sidebar {
+  background-color: @macux_glass_bg;
+  border-right: 1px solid @macux_separator;
+  padding: var(--macux-space-3) var(--macux-space-2);
+  min-width: 200px;
+  max-width: 260px;
+}
+
+/* Sidebar section header (Favourites, iCloud, Locations) */
+.macux-finder-sidebar-section {
+  font-size: 11pt;
+  font-weight: var(--macux-weight-semibold);
+  color: @macux_text_secondary;
+  letter-spacing: var(--macux-tracking-wide);
+  text-transform: uppercase;
+  padding: var(--macux-space-3) var(--macux-space-2) var(--macux-space-1);
+}
+
+/* Sidebar row */
+.macux-finder-sidebar-row {
+  border-radius: var(--macux-radius-sm);
+  padding: 5px var(--macux-space-2);
+  min-height: 30px;
+  transition: background-color var(--macux-dur-fast) var(--macux-ease-out);
+}
+
+.macux-finder-sidebar-row:hover {
+  background-color: @macux_bg_hover;
+}
+
+.macux-finder-sidebar-row:selected,
+.macux-finder-sidebar-row.active {
+  background-color: @macux_bg_selected;
+}
+
+.macux-finder-sidebar-row label {
+  font-size: var(--macux-font-size);
+  color: @macux_text_primary;
+}
+
+.macux-finder-sidebar-row image {
+  color: @macux_text_secondary;
+  min-width: 16px;
+  min-height: 16px;
+  margin-right: var(--macux-space-2);
+}
+
+/* Tag dot in sidebar */
+.macux-finder-tag-dot {
+  min-width: 10px;
+  min-height: 10px;
+  border-radius: var(--macux-radius-full);
+  margin-right: var(--macux-space-2);
+}
+
+/* ── Content area ─────────────────────────────────────────────────────────── */
+
+.macux-finder-content {
+  background-color: @macux_bg_primary;
+}
+
+/* ── Path bar ─────────────────────────────────────────────────────────────── */
+
+.macux-finder-path-bar {
+  background-color: @macux_glass_bg;
+  border-top: 1px solid @macux_separator;
+  padding: 4px 12px;
+  min-height: 28px;
+}
+
+.macux-finder-path-item {
+  background-color: transparent;
+  border: none;
+  padding: 2px 5px;
+  font-size: var(--macux-font-sm);
+  color: @macux_text_secondary;
+  border-radius: var(--macux-radius-xs);
+}
+
+.macux-finder-path-item:hover {
+  background-color: @macux_bg_hover;
+  color: @macux_text_primary;
+}
+
+.macux-finder-path-item.current {
+  color: @macux_text_primary;
+  font-weight: var(--macux-weight-medium);
+}
+
+.macux-finder-path-separator {
+  color: @macux_text_tertiary;
+  font-size: var(--macux-font-sm);
+  padding: 0 2px;
+}
+
+/* ── Status bar ───────────────────────────────────────────────────────────── */
+
+.macux-finder-status-bar {
+  background-color: @macux_glass_bg;
+  border-top: 1px solid @macux_separator;
+  padding: 3px 12px;
+  min-height: 24px;
+  font-size: 11pt;
+  color: @macux_text_secondary;
+}
+
+/* ── Icon view ────────────────────────────────────────────────────────────── */
+
+.macux-finder-icon-view {
+  background-color: @macux_bg_primary;
+  padding: var(--macux-space-4);
+}
+
+.macux-finder-icon-item {
+  border-radius: var(--macux-radius-md);
+  padding: var(--macux-space-2);
+  margin: var(--macux-space-2);
+  min-width: 80px;
+  transition: background-color var(--macux-dur-fast) var(--macux-ease-out);
+}
+
+.macux-finder-icon-item:hover {
+  background-color: @macux_bg_hover;
+}
+
+.macux-finder-icon-item:selected {
+  background-color: @macux_bg_selected;
+}
+
+.macux-finder-icon-item image {
+  min-width: 56px;
+  min-height: 56px;
+}
+
+.macux-finder-icon-item label {
+  font-size: 11pt;
+  color: @macux_text_primary;
+  margin-top: var(--macux-space-1);
+}
+
+/* ── List view ────────────────────────────────────────────────────────────── */
+
+.macux-finder-list-view {
+  background-color: @macux_bg_primary;
+}
+
+.macux-finder-list-header {
+  background-color: @macux_glass_bg;
+  border-bottom: 1px solid @macux_separator;
+  font-size: 11pt;
+  font-weight: var(--macux-weight-semibold);
+  color: @macux_text_secondary;
+  padding: 3px 12px;
+  min-height: 24px;
+}
+
+.macux-finder-list-row {
+  border-bottom: 1px solid @macux_separator;
+  padding: 4px 12px;
+  min-height: 30px;
+  transition: background-color var(--macux-dur-fast) var(--macux-ease-out);
+}
+
+.macux-finder-list-row:hover {
+  background-color: @macux_bg_hover;
+}
+
+.macux-finder-list-row:selected {
+  background-color: @macux_bg_selected;
+}
+
+.macux-finder-list-row image {
+  min-width: 18px;
+  min-height: 18px;
+  margin-right: var(--macux-space-2);
+}
+
+.macux-finder-list-row .name {
+  font-size: var(--macux-font-size);
+  color: @macux_text_primary;
+  font-weight: var(--macux-weight-medium);
+}
+
+.macux-finder-list-row .meta {
+  font-size: var(--macux-font-sm);
+  color: @macux_text_secondary;
+}
+
+/* ── Column (Miller) view ─────────────────────────────────────────────────── */
+
+.macux-finder-column {
+  border-right: 1px solid @macux_separator;
+  min-width: 200px;
+  max-width: 240px;
+  background-color: @macux_bg_primary;
+}
+
+.macux-finder-column:last-child {
+  border-right: none;
+}
+
+/* ── Preview panel ────────────────────────────────────────────────────────── */
+
+.macux-finder-preview {
+  background-color: @macux_bg_tertiary;
+  border-left: 1px solid @macux_separator;
+  min-width: 240px;
+  max-width: 280px;
+  padding: var(--macux-space-6) var(--macux-space-4);
+}
+
+/* Preview thumbnail */
+.macux-finder-preview-thumb {
+  min-width: 160px;
+  min-height: 160px;
+  border-radius: var(--macux-radius-md);
+  box-shadow: var(--macux-shadow-md);
+  margin-bottom: var(--macux-space-4);
+}
+
+/* File name in preview */
+.macux-finder-preview-name {
+  font-size: var(--macux-font-lg);
+  font-weight: var(--macux-weight-semibold);
+  color: @macux_text_primary;
+  margin-bottom: var(--macux-space-4);
+}
+
+/* Metadata row in preview */
+.macux-finder-preview-meta-row {
+  padding: var(--macux-space-2) 0;
+  border-bottom: 1px solid @macux_separator;
+}
+
+.macux-finder-preview-meta-label {
+  font-size: 11pt;
+  font-weight: var(--macux-weight-semibold);
+  color: @macux_text_secondary;
+  min-width: 80px;
+}
+
+.macux-finder-preview-meta-value {
+  font-size: 11pt;
+  color: @macux_text_primary;
+}
+
+/* ── Tag badge ────────────────────────────────────────────────────────────── */
+
+.macux-finder-tag-badge {
+  border-radius: var(--macux-radius-full);
+  padding: 1px 8px;
+  margin: 1px 2px;
+  font-size: 10pt;
+  font-weight: var(--macux-weight-medium);
+  color: #ffffff;
+}
+
+/* ── Drop target highlight ────────────────────────────────────────────────── */
+
+.macux-finder-drop-target {
+  border: 2px solid @macux_accent;
+  background-color: @macux_bg_selected;
+  border-radius: var(--macux-radius-md);
+}

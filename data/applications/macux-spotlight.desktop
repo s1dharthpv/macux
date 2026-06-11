@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Spotlight Search
+Comment=Universal search — apps, files, web, calculator
+Exec=python3 -m spotlight
+Icon=macux-spotlight
+Categories=System;
+NoDisplay=true
+StartupNotify=false
+X-GNOME-AutoRestart=true

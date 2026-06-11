@@ -1,0 +1,262 @@
+/*
+ * MacUX Notification Center CSS
+ * Side panel sliding in from the right edge.
+ */
+
+/* ── Panel window ─────────────────────────────────────────────────────────── */
+
+.macux-nc-window {
+  background-color: transparent;
+}
+
+/* ── Panel container ──────────────────────────────────────────────────────── */
+
+.macux-nc-panel {
+  background-color: @macux_glass_bg_strong;
+  border-left: 1px solid @macux_glass_border;
+  box-shadow: -4px 0 32px @macux_glass_shadow;
+  min-width: 380px;
+  max-width: 380px;
+
+  animation: macux-notif-panel-in var(--macux-dur-slow) var(--macux-ease-out) both;
+}
+
+.macux-nc-panel.closing {
+  animation: macux-notif-panel-out var(--macux-dur-normal) var(--macux-ease-in-out) both;
+}
+
+/* ── Header ───────────────────────────────────────────────────────────────── */
+
+.macux-nc-header {
+  padding: 12px 16px 8px;
+  border-bottom: 1px solid @macux_separator;
+}
+
+.macux-nc-date {
+  font-size: 32pt;
+  font-weight: var(--macux-weight-bold);
+  color: @macux_text_primary;
+  letter-spacing: var(--macux-tracking-tight);
+  line-height: 1.1;
+}
+
+.macux-nc-day {
+  font-size: 16pt;
+  font-weight: var(--macux-weight-regular);
+  color: @macux_text_secondary;
+  margin-bottom: var(--macux-space-2);
+}
+
+/* ── Calendar ─────────────────────────────────────────────────────────────── */
+
+.macux-nc-calendar {
+  padding: 0 8px 8px;
+}
+
+calendar {
+  background-color: transparent;
+  color: @macux_text_primary;
+  border: none;
+  font-size: var(--macux-font-sm);
+}
+
+calendar:selected {
+  background-color: @macux_accent;
+  color: @macux_text_on_accent;
+  border-radius: var(--macux-radius-full);
+}
+
+calendar.header {
+  font-weight: var(--macux-weight-semibold);
+  color: @macux_text_primary;
+}
+
+calendar day:hover {
+  background-color: @macux_bg_hover;
+  border-radius: var(--macux-radius-full);
+}
+
+/* ── Widget section (Weather / Clock / Notes) ─────────────────────────────── */
+
+.macux-nc-widgets {
+  padding: var(--macux-space-3) var(--macux-space-3);
+  border-bottom: 1px solid @macux_separator;
+}
+
+/* Individual widget card */
+.macux-nc-widget {
+  background-color: @macux_notification_bg;
+  border: 1px solid @macux_notification_border;
+  border-radius: var(--macux-radius-lg);
+  padding: var(--macux-space-4);
+  box-shadow: var(--macux-shadow-xs);
+}
+
+/* Weather widget */
+.macux-nc-weather-temp {
+  font-size: 36pt;
+  font-weight: var(--macux-weight-light);
+  color: @macux_text_primary;
+  letter-spacing: var(--macux-tracking-tight);
+}
+
+.macux-nc-weather-cond {
+  font-size: var(--macux-font-sm);
+  color: @macux_text_secondary;
+}
+
+/* Analog clock widget */
+.macux-nc-clock-widget {
+  min-width: 90px;
+  min-height: 90px;
+}
+
+/* ── DND banner ───────────────────────────────────────────────────────────── */
+
+.macux-nc-dnd-row {
+  padding: var(--macux-space-3) var(--macux-space-4);
+  border-bottom: 1px solid @macux_separator;
+}
+
+.macux-nc-dnd-label {
+  font-size: var(--macux-font-size);
+  font-weight: var(--macux-weight-medium);
+  color: @macux_text_primary;
+}
+
+/* ── Notification list ────────────────────────────────────────────────────── */
+
+.macux-nc-list {
+  padding: var(--macux-space-2) var(--macux-space-3);
+}
+
+/* Section header ("Earlier Today", app name) */
+.macux-nc-group-header {
+  font-size: 12pt;
+  font-weight: var(--macux-weight-semibold);
+  color: @macux_text_secondary;
+  padding: var(--macux-space-3) var(--macux-space-1) var(--macux-space-1);
+}
+
+/* ── Notification card ────────────────────────────────────────────────────── */
+
+.macux-nc-card {
+  background-color: @macux_notification_bg;
+  border: 1px solid @macux_notification_border;
+  border-radius: var(--macux-radius-lg);
+  padding: var(--macux-space-3) var(--macux-space-4);
+  margin-bottom: var(--macux-space-2);
+  box-shadow: var(--macux-shadow-xs);
+  animation: macux-notif-card-in var(--macux-dur-normal) var(--macux-ease-out) both;
+  transition: transform var(--macux-dur-fast) var(--macux-ease-out);
+}
+
+.macux-nc-card:hover {
+  box-shadow: var(--macux-shadow-sm);
+}
+
+.macux-nc-card.unread {
+  border-left: 3px solid @macux_notif_unread;
+}
+
+/* Swipe to dismiss */
+.macux-nc-card.dismissing {
+  animation: macux-notif-banner-out var(--macux-dur-fast) var(--macux-ease-in-out) both;
+}
+
+/* App icon in notification */
+.macux-nc-card-icon {
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 8px;
+  margin-right: var(--macux-space-3);
+}
+
+/* Notification text */
+.macux-nc-card-app {
+  font-size: 11pt;
+  font-weight: var(--macux-weight-semibold);
+  color: @macux_text_secondary;
+}
+
+.macux-nc-card-title {
+  font-size: var(--macux-font-size);
+  font-weight: var(--macux-weight-semibold);
+  color: @macux_text_primary;
+}
+
+.macux-nc-card-body {
+  font-size: var(--macux-font-sm);
+  color: @macux_text_secondary;
+  margin-top: 2px;
+}
+
+.macux-nc-card-time {
+  font-size: 11pt;
+  color: @macux_text_tertiary;
+}
+
+/* Action buttons in notification */
+.macux-nc-card-action {
+  background-color: @macux_bg_hover;
+  border: none;
+  border-radius: var(--macux-radius-sm);
+  padding: 4px 10px;
+  font-size: var(--macux-font-sm);
+  font-weight: var(--macux-weight-medium);
+  color: @macux_accent;
+  margin-top: var(--macux-space-2);
+  margin-right: var(--macux-space-2);
+}
+
+.macux-nc-card-action:hover {
+  background-color: @macux_bg_active;
+}
+
+/* Dismiss (X) button */
+.macux-nc-card-dismiss {
+  min-width: 20px;
+  min-height: 20px;
+  border-radius: var(--macux-radius-full);
+  background-color: transparent;
+  border: none;
+  color: @macux_text_tertiary;
+  padding: 0;
+  opacity: 0;
+  transition: opacity var(--macux-dur-fast) var(--macux-ease-out);
+}
+
+.macux-nc-card:hover .macux-nc-card-dismiss {
+  opacity: 1;
+}
+
+/* ── Notification banner (floating, appears at top-right) ─────────────────── */
+
+.macux-notif-banner {
+  background-color: @macux_notification_bg;
+  border: 1px solid @macux_notification_border;
+  border-radius: var(--macux-radius-lg);
+  box-shadow: var(--macux-shadow-xl);
+  padding: var(--macux-space-3) var(--macux-space-4);
+  min-width: 320px;
+  max-width: 380px;
+  animation: macux-notif-banner-in var(--macux-dur-normal) var(--macux-ease-spring) both;
+}
+
+.macux-notif-banner.dismissing {
+  animation: macux-notif-banner-out var(--macux-dur-fast) var(--macux-ease-in-out) both;
+}
+
+/* ── Clear all button ─────────────────────────────────────────────────────── */
+
+.macux-nc-clear-btn {
+  font-size: var(--macux-font-sm);
+  color: @macux_accent;
+  background-color: transparent;
+  border: none;
+  padding: var(--macux-space-2) var(--macux-space-3);
+}
+
+.macux-nc-clear-btn:hover {
+  color: @macux_accent_hover;
+}

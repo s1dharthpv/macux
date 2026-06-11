@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=MacUX Mission Control
+Comment=Window overview and workspace switcher
+Exec=python3 -m mission_control
+Icon=macux-mission-control
+Categories=System;
+NoDisplay=true
+StartupNotify=false
+X-GNOME-AutoRestart=true

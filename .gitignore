@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Testing & coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Type checking
+.mypy_cache/
+.ruff_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# GNOME Shell compiled schemas
+schemas/gschemas.compiled
+gnome-shell/extensions/*/schemas/gschemas.compiled
+gnome-extensions/*/schemas/gschemas.compiled
+
+# Debian packaging build artefacts
+debian/
+*.deb
+*.changes
+*.buildinfo
+*.dsc
+*.tar.gz
+*.tar.xz
+
+# Local user data
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+
+# Logs
+*.log
+
+# Editor backups
+*.orig
+*.bak

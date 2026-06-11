@@ -1,0 +1,20 @@
+[Unit]
+Description=MacUX Spotlight Search Indexer
+Documentation=https://github.com/macux/macux
+After=macux.service
+PartOf=macux.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 -m spotlight.indexer --full
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=macux-indexer
+Environment=PYTHONPATH=/usr/lib/macux
+
+# Nice value — run at low priority to avoid impacting interactive use
+Nice=19
+IOSchedulingClass=idle
+
+[Install]
+WantedBy=macux.service

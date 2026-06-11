@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=MacUX Menu Bar
+Comment=macOS-style global menu bar
+Exec=python3 -m menu_bar
+Icon=macux-menu-bar
+Categories=System;
+NoDisplay=true
+StartupNotify=false
+X-GNOME-AutoRestart=true

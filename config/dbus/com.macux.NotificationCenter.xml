@@ -1,0 +1,57 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+ "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/com/macux/NotificationCenter">
+  <interface name="com.macux.NotificationCenter">
+    <annotation name="org.freedesktop.DBus.Description"
+                value="MacUX Notification Center — notification history and widgets"/>
+
+    <method name="Show"/>
+    <method name="Hide"/>
+    <method name="Toggle"/>
+
+    <method name="GetNotifications">
+      <arg name="since_id" type="i" direction="in"/>
+      <arg name="limit" type="i" direction="in"/>
+      <arg name="notifications" type="aa{sv}" direction="out"/>
+    </method>
+    <method name="MarkRead">
+      <arg name="notification_id" type="i" direction="in"/>
+    </method>
+    <method name="MarkAllRead"/>
+    <method name="Dismiss">
+      <arg name="notification_id" type="i" direction="in"/>
+    </method>
+    <method name="ClearAll"/>
+    <method name="GetUnreadCount">
+      <arg name="count" type="i" direction="out"/>
+    </method>
+
+    <method name="SetDoNotDisturb">
+      <arg name="enabled" type="b" direction="in"/>
+    </method>
+    <method name="GetDoNotDisturb">
+      <arg name="enabled" type="b" direction="out"/>
+    </method>
+
+    <signal name="NotificationReceived">
+      <arg name="id" type="i"/>
+      <arg name="app_name" type="s"/>
+      <arg name="summary" type="s"/>
+      <arg name="body" type="s"/>
+      <arg name="urgency" type="i"/>
+    </signal>
+    <signal name="NotificationDismissed">
+      <arg name="id" type="i"/>
+    </signal>
+    <signal name="UnreadCountChanged">
+      <arg name="count" type="i"/>
+    </signal>
+    <signal name="DoNotDisturbChanged">
+      <arg name="enabled" type="b"/>
+    </signal>
+
+    <property name="Visible" type="b" access="read"/>
+    <property name="DoNotDisturb" type="b" access="readwrite"/>
+    <property name="UnreadCount" type="i" access="read"/>
+  </interface>
+</node>

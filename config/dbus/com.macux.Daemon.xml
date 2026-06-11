@@ -1,0 +1,80 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+ "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/com/macux/Daemon">
+  <interface name="com.macux.Daemon">
+    <annotation name="org.freedesktop.DBus.Description"
+                value="MacUX Orchestrator Daemon — central coordination service"/>
+
+    <!-- Version and health -->
+    <method name="GetVersion">
+      <arg name="version" type="s" direction="out"/>
+      <annotation name="org.freedesktop.DBus.Description" value="Returns MacUX version string"/>
+    </method>
+    <method name="Ping">
+      <arg name="pong" type="b" direction="out"/>
+    </method>
+
+    <!-- Configuration -->
+    <method name="GetConfig">
+      <arg name="key" type="s" direction="in"/>
+      <arg name="value" type="v" direction="out"/>
+    </method>
+    <method name="SetConfig">
+      <arg name="key" type="s" direction="in"/>
+      <arg name="value" type="v" direction="in"/>
+    </method>
+    <method name="ReloadConfig"/>
+    <method name="ResetConfig">
+      <arg name="key" type="s" direction="in"/>
+    </method>
+
+    <!-- Component management -->
+    <method name="GetComponents">
+      <arg name="components" type="as" direction="out"/>
+    </method>
+    <method name="GetComponentStatus">
+      <arg name="component" type="s" direction="in"/>
+      <arg name="status" type="a{sv}" direction="out"/>
+    </method>
+    <method name="RestartComponent">
+      <arg name="component" type="s" direction="in"/>
+    </method>
+    <method name="StopComponent">
+      <arg name="component" type="s" direction="in"/>
+    </method>
+    <method name="StartComponent">
+      <arg name="component" type="s" direction="in"/>
+    </method>
+
+    <!-- Theme -->
+    <method name="SetTheme">
+      <arg name="theme" type="s" direction="in"/>
+    </method>
+    <method name="GetTheme">
+      <arg name="theme" type="s" direction="out"/>
+    </method>
+
+    <!-- Signals -->
+    <signal name="ConfigChanged">
+      <arg name="key" type="s"/>
+      <arg name="value" type="v"/>
+    </signal>
+    <signal name="ThemeChanged">
+      <arg name="theme" type="s"/>
+    </signal>
+    <signal name="ComponentStateChanged">
+      <arg name="component" type="s"/>
+      <arg name="state" type="s"/>
+    </signal>
+    <signal name="SystemEvent">
+      <arg name="category" type="s"/>
+      <arg name="event" type="s"/>
+      <arg name="data" type="a{sv}"/>
+    </signal>
+
+    <!-- Properties -->
+    <property name="Version" type="s" access="read"/>
+    <property name="Theme" type="s" access="readwrite"/>
+    <property name="Running" type="b" access="read"/>
+  </interface>
+</node>

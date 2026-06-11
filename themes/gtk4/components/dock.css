@@ -1,0 +1,181 @@
+/*
+ * MacUX Dock CSS
+ * Bottom-centered glass dock with icon magnification support.
+ * Widget tree: DockWindow > DockBackground > DockBox > DockIcon
+ */
+
+/* ── Dock window ──────────────────────────────────────────────────────────── */
+
+.macux-dock-window {
+  background-color: transparent;
+}
+
+/* ── Dock container (the visible pill) ───────────────────────────────────── */
+
+.macux-dock {
+  background-color: @macux_dock_bg;
+  border: 1px solid @macux_dock_border;
+  border-radius: var(--macux-dock-radius);
+  box-shadow:
+    var(--macux-shadow-dock),
+    inset 0 1px 0 @macux_glass_border;
+  padding: var(--macux-dock-padding-v) var(--macux-dock-padding-h);
+  min-height: var(--macux-dock-height);
+
+  /* Appear animation on startup */
+  animation: macux-dock-appear var(--macux-dur-slow) var(--macux-ease-spring) both;
+}
+
+/* Dock hiding (auto-hide offscreen) */
+.macux-dock.hiding {
+  animation: macux-dock-hide var(--macux-dur-normal) var(--macux-ease-in-out) both;
+}
+
+.macux-dock.showing {
+  animation: macux-dock-appear var(--macux-dur-normal) var(--macux-ease-spring) both;
+}
+
+/* ── Dock icon button ─────────────────────────────────────────────────────── */
+
+.macux-dock-icon {
+  background-color: transparent;
+  border: none;
+  border-radius: var(--macux-radius-md);
+  padding: 4px;
+  margin: 0 3px;
+  min-width: var(--macux-dock-icon-size);
+  min-height: var(--macux-dock-icon-size);
+  transition:
+    min-width  var(--macux-dur-fast) var(--macux-ease-spring),
+    min-height var(--macux-dur-fast) var(--macux-ease-spring),
+    margin     var(--macux-dur-fast) var(--macux-ease-spring);
+  position: relative;
+}
+
+.macux-dock-icon:hover {
+  background-color: @macux_bg_hover;
+}
+
+.macux-dock-icon:active {
+  background-color: @macux_bg_active;
+}
+
+/* The app image/icon inside the button */
+.macux-dock-icon image {
+  min-width:  var(--macux-dock-icon-size);
+  min-height: var(--macux-dock-icon-size);
+  border-radius: 22%;   /* squircle */
+  transition:
+    min-width  var(--macux-dur-fast) var(--macux-ease-spring),
+    min-height var(--macux-dur-fast) var(--macux-ease-spring);
+}
+
+/* Magnification size classes (set programmatically by dock) */
+.macux-dock-icon.mag-1 { min-width: 52px; min-height: 52px; }
+.macux-dock-icon.mag-2 { min-width: 58px; min-height: 58px; }
+.macux-dock-icon.mag-3 { min-width: 64px; min-height: 64px; }
+.macux-dock-icon.mag-peak {
+  min-width:  var(--macux-dock-icon-max);
+  min-height: var(--macux-dock-icon-max);
+  margin: 0 6px;
+}
+.macux-dock-icon.mag-peak image {
+  min-width:  var(--macux-dock-icon-max);
+  min-height: var(--macux-dock-icon-max);
+}
+
+/* Bounce animation for launch */
+.macux-dock-icon.bouncing {
+  animation: macux-bounce-launch 600ms var(--macux-ease-out) both;
+}
+
+/* Alert wiggle */
+.macux-dock-icon.alerting {
+  animation: macux-bounce-alert 800ms var(--macux-ease-out);
+}
+
+/* Icon added to dock */
+.macux-dock-icon.adding {
+  animation: macux-icon-add 350ms var(--macux-ease-spring) both;
+}
+
+/* ── Running indicator dot ────────────────────────────────────────────────── */
+
+.macux-dock-indicator {
+  min-width: var(--macux-dock-indicator-size);
+  min-height: var(--macux-dock-indicator-size);
+  border-radius: var(--macux-radius-full);
+  background-color: @macux_dock_indicator;
+  margin-top: 2px;
+  /* Centered below the icon via absolute positioning in Python code */
+}
+
+/* Multiple running windows: 2 dots */
+.macux-dock-indicator.multi {
+  min-width: 12px;
+}
+
+/* ── App label tooltip (shown on hover) ───────────────────────────────────── */
+
+.macux-dock-label {
+  background-color: @macux_glass_bg_strong;
+  border: 1px solid @macux_glass_border;
+  border-radius: var(--macux-radius-sm);
+  box-shadow: var(--macux-shadow-md);
+  padding: 4px 10px;
+  font-size: var(--macux-font-sm);
+  font-weight: var(--macux-weight-medium);
+  color: @macux_text_primary;
+  animation: macux-fade-in-up 120ms var(--macux-ease-out) both;
+}
+
+/* ── Dock separator ───────────────────────────────────────────────────────── */
+
+.macux-dock-separator {
+  background-color: @macux_dock_separator;
+  min-width: 1px;
+  min-height: 36px;
+  margin: 0 var(--macux-space-2);
+  border-radius: var(--macux-radius-full);
+}
+
+/* ── Trash icon (right end of dock) ──────────────────────────────────────── */
+
+.macux-dock-trash {
+  /* Uses same style as dock icon, no special overrides needed */
+}
+
+.macux-dock-trash.drag-hover {
+  background-color: @macux_bg_selected;
+  border: 2px dashed @macux_accent;
+}
+
+/* ── Drag-and-drop zone (drop target highlight) ────────────────────────────── */
+
+.macux-dock-icon.drop-target {
+  border: 2px dashed @macux_accent;
+  background-color: @macux_bg_selected;
+}
+
+/* ── Badge (unread / notification count) ─────────────────────────────────── */
+
+.macux-dock-badge {
+  background-color: @macux_destructive;
+  color: #ffffff;
+  border-radius: var(--macux-radius-full);
+  font-size: 9pt;
+  font-weight: var(--macux-weight-bold);
+  min-width: 16px;
+  min-height: 16px;
+  padding: 0 4px;
+  border: 2px solid @macux_dock_bg;
+  /* Positioned at top-right of icon via overlay in Python */
+}
+
+/* ── Pinned app glow (active focus) ───────────────────────────────────────── */
+
+.macux-dock-icon:focus-visible {
+  outline: 2px solid @macux_accent;
+  outline-offset: 2px;
+  border-radius: var(--macux-radius-md);
+}

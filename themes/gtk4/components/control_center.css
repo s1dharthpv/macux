@@ -1,0 +1,242 @@
+/*
+ * MacUX Control Center CSS
+ * Compact floating panel with quick-toggle tiles.
+ */
+
+/* ── Panel ────────────────────────────────────────────────────────────────── */
+
+.macux-cc-panel {
+  background-color: @macux_control_bg;
+  border: 1px solid @macux_glass_border;
+  border-radius: var(--macux-radius-xl);
+  box-shadow: var(--macux-shadow-xl);
+  padding: var(--macux-space-3);
+  min-width: 320px;
+  max-width: 380px;
+  animation: macux-control-center-in var(--macux-dur-normal) var(--macux-ease-spring) both;
+}
+
+.macux-cc-panel.closing {
+  animation: macux-zoom-out var(--macux-dur-fast) var(--macux-ease-in-out) both;
+}
+
+/* ── Toggle grid (2×2 tiles at top) ──────────────────────────────────────── */
+
+.macux-cc-grid {
+  margin-bottom: var(--macux-space-2);
+}
+
+/* ── Toggle tile ──────────────────────────────────────────────────────────── */
+
+.macux-cc-tile {
+  background-color: @macux_bg_secondary;
+  border: 1px solid @macux_border;
+  border-radius: var(--macux-radius-lg);
+  padding: var(--macux-space-3);
+  min-width: 142px;
+  min-height: 72px;
+  margin: var(--macux-space-1);
+  transition:
+    background-color var(--macux-dur-fast) var(--macux-ease-out),
+    border-color var(--macux-dur-fast) var(--macux-ease-out),
+    transform var(--macux-dur-fast) var(--macux-ease-spring);
+}
+
+.macux-cc-tile:hover {
+  background-color: @macux_bg_hover;
+  transform: scale(1.02);
+}
+
+.macux-cc-tile:active {
+  transform: scale(0.97);
+}
+
+.macux-cc-tile.active {
+  background-color: @macux_accent;
+  border-color: transparent;
+}
+
+.macux-cc-tile.active label {
+  color: @macux_text_on_accent;
+}
+
+/* Tile icon */
+.macux-cc-tile-icon {
+  min-width: 28px;
+  min-height: 28px;
+  background-color: @macux_bg_hover;
+  border-radius: var(--macux-radius-full);
+  padding: 5px;
+  margin-bottom: var(--macux-space-2);
+  color: @macux_text_primary;
+}
+
+.macux-cc-tile.active .macux-cc-tile-icon {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* Tile label */
+.macux-cc-tile-label {
+  font-size: 11pt;
+  font-weight: var(--macux-weight-semibold);
+  color: @macux_text_primary;
+  margin-top: 2px;
+}
+
+/* Tile sub-label (e.g. WiFi network name) */
+.macux-cc-tile-sublabel {
+  font-size: 10pt;
+  color: @macux_text_secondary;
+  margin-top: 1px;
+}
+
+.macux-cc-tile.active .macux-cc-tile-sublabel {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ── Slider row (Volume / Brightness) ────────────────────────────────────── */
+
+.macux-cc-slider-row {
+  background-color: @macux_bg_secondary;
+  border: 1px solid @macux_border;
+  border-radius: var(--macux-radius-lg);
+  padding: var(--macux-space-3) var(--macux-space-4);
+  margin: var(--macux-space-1) 0;
+}
+
+.macux-cc-slider-icon {
+  color: @macux_text_secondary;
+  min-width: 18px;
+  min-height: 18px;
+  margin-right: var(--macux-space-2);
+}
+
+.macux-cc-slider scale {
+  min-width: 200px;
+}
+
+.macux-cc-slider scale trough {
+  background-color: @macux_control_slider_track;
+}
+
+.macux-cc-slider scale highlight {
+  background-color: @macux_text_primary;
+}
+
+/* Volume-specific: highlight is white-ish */
+.macux-cc-volume scale highlight {
+  background-color: @macux_text_primary;
+}
+
+/* Brightness: yellow highlight */
+.macux-cc-brightness scale highlight {
+  background-color: @macux_warning;
+}
+
+/* ── Toggle row (Night Light / DND / VPN) ────────────────────────────────── */
+
+.macux-cc-toggle-row {
+  background-color: @macux_bg_secondary;
+  border: 1px solid @macux_border;
+  border-radius: var(--macux-radius-lg);
+  padding: var(--macux-space-3) var(--macux-space-4);
+  margin: var(--macux-space-1) 0;
+  min-height: 52px;
+}
+
+.macux-cc-toggle-row:not(:last-child) {
+  border-bottom: none;
+  border-radius: var(--macux-radius-lg) var(--macux-radius-lg) 0 0;
+}
+
+.macux-cc-toggle-row:not(:first-child) {
+  border-top: 1px solid @macux_separator;
+  border-radius: 0 0 var(--macux-radius-lg) var(--macux-radius-lg);
+}
+
+.macux-cc-toggle-row.only-child {
+  border-radius: var(--macux-radius-lg);
+}
+
+.macux-cc-toggle-label {
+  font-size: var(--macux-font-size);
+  font-weight: var(--macux-weight-medium);
+  color: @macux_text_primary;
+}
+
+.macux-cc-toggle-sublabel {
+  font-size: var(--macux-font-sm);
+  color: @macux_text_secondary;
+}
+
+/* ── Battery status ───────────────────────────────────────────────────────── */
+
+.macux-cc-battery-level {
+  font-size: 26pt;
+  font-weight: var(--macux-weight-light);
+  color: @macux_text_primary;
+}
+
+.macux-cc-battery-label {
+  font-size: var(--macux-font-sm);
+  color: @macux_text_secondary;
+}
+
+.macux-cc-battery-bar {
+  background-color: @macux_control_slider_track;
+  border-radius: var(--macux-radius-full);
+  min-height: 6px;
+  overflow: hidden;
+}
+
+.macux-cc-battery-fill {
+  background-color: @macux_success;
+  border-radius: var(--macux-radius-full);
+  min-height: 6px;
+}
+
+.macux-cc-battery-fill.warning {
+  background-color: @macux_warning;
+}
+
+.macux-cc-battery-fill.critical {
+  background-color: @macux_destructive;
+}
+
+.macux-cc-battery-fill.charging {
+  background-color: @macux_accent;
+}
+
+/* ── Quick links row ──────────────────────────────────────────────────────── */
+
+.macux-cc-links {
+  border-top: 1px solid @macux_separator;
+  margin-top: var(--macux-space-2);
+  padding-top: var(--macux-space-2);
+}
+
+.macux-cc-link-btn {
+  background-color: transparent;
+  border: none;
+  border-radius: var(--macux-radius-sm);
+  padding: 5px 8px;
+  font-size: var(--macux-font-sm);
+  color: @macux_accent;
+  font-weight: var(--macux-weight-medium);
+}
+
+.macux-cc-link-btn:hover {
+  background-color: @macux_bg_hover;
+}
+
+/* ── Section label ────────────────────────────────────────────────────────── */
+
+.macux-cc-section {
+  font-size: 11pt;
+  font-weight: var(--macux-weight-semibold);
+  color: @macux_text_secondary;
+  letter-spacing: var(--macux-tracking-wide);
+  text-transform: uppercase;
+  padding: var(--macux-space-3) 0 var(--macux-space-1);
+}

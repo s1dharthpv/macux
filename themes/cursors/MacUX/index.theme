@@ -1,0 +1,4 @@
+[Icon Theme]
+Name=MacUX
+Comment=macOS-inspired cursor theme for MacUX desktop environment
+Inherits=Bibata-Modern-Classic,Adwaita,default

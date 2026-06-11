@@ -1,0 +1,213 @@
+/*
+ * MacUX Common Component Styles
+ * Shared glassmorphism panel, overlay backdrop, and utility classes.
+ */
+
+/* ── Glass panel (base for Dock, Spotlight, Notification Center, etc.) ────── */
+
+.macux-glass {
+  background-color: @macux_glass_bg;
+  border: 1px solid @macux_glass_border;
+  box-shadow: var(--macux-shadow-lg);
+}
+
+.macux-glass-strong {
+  background-color: @macux_glass_bg_strong;
+  border: 1px solid @macux_glass_border;
+  box-shadow: var(--macux-shadow-xl);
+}
+
+/* Rounded glass panel */
+.macux-glass-panel {
+  background-color: @macux_glass_bg_strong;
+  border: 1px solid @macux_glass_border;
+  border-radius: var(--macux-radius-xl);
+  box-shadow: var(--macux-shadow-xl);
+  padding: var(--macux-space-4);
+}
+
+/* ── Overlay backdrop ─────────────────────────────────────────────────────── */
+
+.macux-overlay-backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* ── MacUX window chrome ──────────────────────────────────────────────────── */
+
+.macux-window {
+  background-color: @macux_bg_primary;
+  border-radius: var(--macux-radius-lg);
+  box-shadow: var(--macux-shadow-xl);
+  border: 1px solid @macux_border;
+}
+
+/* ── Traffic light buttons (macOS window controls) ────────────────────────── */
+
+.macux-traffic-lights {
+  padding: 8px 12px;
+}
+
+.macux-traffic-light {
+  min-width: 12px;
+  min-height: 12px;
+  border-radius: var(--macux-radius-full);
+  margin-right: 6px;
+  border: none;
+  padding: 0;
+  box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.15);
+  transition: filter var(--macux-dur-fast) var(--macux-ease-out);
+}
+
+.macux-traffic-light:hover {
+  filter: brightness(0.88);
+}
+
+.macux-traffic-light.close    { background-color: #ff5f57; }
+.macux-traffic-light.minimize { background-color: #febc2e; }
+.macux-traffic-light.zoom     { background-color: #28c840; }
+
+/* ── Section header / category label ─────────────────────────────────────── */
+
+.macux-section-header {
+  font-size: var(--macux-font-sm);
+  font-weight: var(--macux-weight-semibold);
+  color: @macux_text_secondary;
+  letter-spacing: var(--macux-tracking-wide);
+  text-transform: uppercase;
+  padding: var(--macux-space-2) var(--macux-space-3);
+}
+
+/* ── Pill badge ───────────────────────────────────────────────────────────── */
+
+.macux-badge {
+  background-color: @macux_destructive;
+  color: #ffffff;
+  border-radius: var(--macux-radius-full);
+  font-size: 10pt;
+  font-weight: var(--macux-weight-bold);
+  padding: 1px 5px;
+  min-width: 16px;
+  min-height: 16px;
+}
+
+.macux-badge.accent {
+  background-color: @macux_accent;
+}
+
+/* ── Toolbar ──────────────────────────────────────────────────────────────── */
+
+.macux-toolbar {
+  background-color: @macux_glass_bg_strong;
+  border-bottom: 1px solid @macux_separator;
+  padding: 6px 12px;
+  min-height: 44px;
+}
+
+/* ── Sidebar list item ────────────────────────────────────────────────────── */
+
+.macux-sidebar-item {
+  border-radius: var(--macux-radius-sm);
+  padding: 5px 10px;
+  min-height: 30px;
+  transition: background-color var(--macux-dur-fast) var(--macux-ease-out);
+}
+
+.macux-sidebar-item:hover {
+  background-color: @macux_bg_hover;
+}
+
+.macux-sidebar-item:selected,
+.macux-sidebar-item.active {
+  background-color: @macux_bg_selected;
+}
+
+.macux-sidebar-item label {
+  font-size: var(--macux-font-size);
+  font-weight: var(--macux-weight-medium);
+}
+
+/* ── Avatar / app icon wrapper ────────────────────────────────────────────── */
+
+.macux-app-icon-wrapper {
+  border-radius: 22%;   /* macOS icon squircle */
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.20);
+}
+
+.macux-app-icon-wrapper image {
+  border-radius: 22%;
+}
+
+/* ── Loading placeholder (skeleton) ──────────────────────────────────────── */
+
+.macux-skeleton {
+  background-color: @macux_bg_hover;
+  border-radius: var(--macux-radius-sm);
+  animation: macux-pulse 1.5s ease-in-out infinite;
+}
+
+/* ── Divider ──────────────────────────────────────────────────────────────── */
+
+.macux-divider {
+  background-color: @macux_separator;
+  min-height: 1px;
+  margin: var(--macux-space-2) 0;
+}
+
+/* ── Inset group (Adwaita-style grouped list) ─────────────────────────────── */
+
+.macux-group {
+  background-color: @macux_bg_secondary;
+  border: 1px solid @macux_border;
+  border-radius: var(--macux-radius-lg);
+  overflow: hidden;
+}
+
+.macux-group row:not(:last-child) {
+  border-bottom: 1px solid @macux_separator;
+}
+
+/* ── Status dot ───────────────────────────────────────────────────────────── */
+
+.macux-status-dot {
+  min-width: 8px;
+  min-height: 8px;
+  border-radius: var(--macux-radius-full);
+  background-color: @macux_text_tertiary;
+}
+
+.macux-status-dot.online   { background-color: @macux_success; }
+.macux-status-dot.busy     { background-color: @macux_destructive; }
+.macux-status-dot.away     { background-color: @macux_warning; }
+.macux-status-dot.unread   { background-color: @macux_notif_unread; }
+
+/* ── Keyboard shortcut label ──────────────────────────────────────────────── */
+
+.macux-kbd {
+  background-color: @macux_bg_tertiary;
+  border: 1px solid @macux_border;
+  border-radius: var(--macux-radius-xs);
+  padding: 1px 5px;
+  font-size: var(--macux-font-sm);
+  font-family: var(--macux-font-mono);
+  color: @macux_text_secondary;
+  box-shadow: 0 1px 0 @macux_border_strong;
+}
+
+/* ── Empty state ──────────────────────────────────────────────────────────── */
+
+.macux-empty-state {
+  padding: var(--macux-space-16);
+}
+
+.macux-empty-state label.title {
+  font-size: var(--macux-font-xl);
+  font-weight: var(--macux-weight-semibold);
+  color: @macux_text_secondary;
+}
+
+.macux-empty-state label.subtitle {
+  font-size: var(--macux-font-size);
+  color: @macux_text_tertiary;
+  margin-top: var(--macux-space-2);
+}

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=MacUX Dock
+Comment=macOS-style application dock with magnification
+Exec=python3 -m dock
+Icon=macux-dock
+Categories=System;
+NoDisplay=true
+StartupNotify=false
+X-GNOME-AutoRestart=true
+X-GNOME-Autostart-enabled=true

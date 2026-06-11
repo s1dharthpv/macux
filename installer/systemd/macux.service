@@ -1,0 +1,32 @@
+[Unit]
+Description=MacUX Desktop Environment Orchestrator
+Documentation=https://github.com/macux/macux
+PartOf=graphical-session.target
+After=graphical-session.target dbus.socket
+Requires=dbus.socket
+
+[Service]
+Type=dbus
+BusName=com.macux.Daemon
+ExecStart=/usr/bin/python3 -m macuxd.daemon
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=5
+TimeoutStartSec=30
+TimeoutStopSec=15
+
+# Resource limits
+MemoryMax=256M
+CPUQuota=20%
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=macuxd
+
+# Environment
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONPATH=/usr/lib/macux
+
+[Install]
+WantedBy=graphical-session.target

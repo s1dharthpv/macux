@@ -1,0 +1,94 @@
+# MacUX Default Configuration
+# Location: ~/.config/macux/config.toml
+# Documentation: https://github.com/macux/macux/docs/configuration.md
+
+[global]
+theme = "auto"                  # light | dark | auto (follows GNOME color scheme)
+accent_color = "#0071e3"
+font_family = "Inter"
+font_size = 13
+animations = true
+animation_speed = 1.0           # 0.5 = faster, 2.0 = slower, 0.0 = disabled
+sound_effects = true
+reduce_motion = false           # override for accessibility
+
+[dock]
+position = "bottom"             # bottom | left | right
+icon_size = 48                  # pixels
+magnification = true
+magnification_max = 72          # pixels at peak magnification
+magnification_radius = 100      # pixels from icon center that triggers magnification
+auto_hide = false
+auto_hide_delay = 0.5           # seconds before dock hides
+auto_hide_show_delay = 0.1      # seconds before dock shows on hover
+show_running_indicators = true
+show_recent_apps = true
+recent_apps_count = 3
+show_trash = true
+minimize_to_dock = true
+bounce_on_launch = true
+bounce_on_alert = true
+
+[spotlight]
+hotkey = "<Super>space"
+max_results = 12
+categories_order = ["apps", "files", "folders", "calculator", "web"]
+search_web = true
+search_engine = "https://www.google.com/search?q={}"
+index_home = true
+index_depth = 8
+index_hidden = false
+reindex_interval = 300          # seconds, 0 = manual only
+show_previews = true
+
+[launchpad]
+hotkey = "F4"
+columns = 6
+rows = 4
+background_blur = true
+background_opacity = 0.85
+show_recent = false
+scroll_to_search = true
+
+[menu_bar]
+clock_format = "%H:%M"
+clock_date_format = "%a %d %b"
+show_date = true
+show_seconds = false
+show_battery_percentage = true
+show_battery_icon = true
+show_wifi_name = false
+show_bluetooth_label = false
+auto_hide = false
+
+[notification_center]
+hotkey = "<Super>n"
+do_not_disturb = false
+banner_timeout = 5              # seconds
+banner_position = "top-right"  # top-right | top-left
+max_history = 100
+group_by_app = true
+show_in_lock_screen = false
+
+[mission_control]
+hotkey = "<Super>Up"
+show_desktop_hotkey = "<Super>d"
+window_gap = 8                  # pixels between windows in overview
+animate = true
+
+[control_center]
+hotkey = "<Super><Shift>c"
+show_vpn = true
+show_night_light = true
+show_focus = true
+
+[finder]
+default_view = "icon"           # icon | list | column | gallery
+icon_size = 64
+show_hidden_files = false
+show_path_bar = true
+show_status_bar = true
+show_preview_panel = true
+open_folders_in_tabs = false
+sidebar_width = 200
+new_window_target = "home"      # home | desktop | last

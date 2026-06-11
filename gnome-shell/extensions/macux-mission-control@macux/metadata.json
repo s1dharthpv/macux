@@ -1,0 +1,9 @@
+{
+  "name": "MacUX Mission Control",
+  "description": "macOS-style Mission Control — spreads all windows of the active workspace and shows a workspace switcher. Trigger via hot corner (top-left) or Super+F3.",
+  "uuid": "macux-mission-control@macux",
+  "version": 1,
+  "shell-version": ["46"],
+  "url": "https://github.com/macux/macux",
+  "settings-schema": "org.gnome.shell.extensions.macux-mission-control"
+}

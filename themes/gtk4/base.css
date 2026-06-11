@@ -1,0 +1,497 @@
+/*
+ * MacUX GTK4 Base CSS
+ * Global resets, typography, and widget normalization.
+ * Loaded after color/typography tokens — uses @define-color variables.
+ */
+
+/* ── Global reset ─────────────────────────────────────────────────────────── */
+
+* {
+  box-sizing: border-box;
+  -gtk-icon-style: symbolic;
+}
+
+window {
+  background-color: @macux_bg_primary;
+  color: @macux_text_primary;
+  font-family: var(--macux-font-family);
+  font-size: var(--macux-font-size);
+}
+
+/* ── Typography ───────────────────────────────────────────────────────────── */
+
+label {
+  color: @macux_text_primary;
+  font-family: var(--macux-font-family);
+  font-size: var(--macux-font-size);
+}
+
+label.dim-label,
+label.subtitle,
+label.caption {
+  color: @macux_text_secondary;
+  font-size: var(--macux-font-sm);
+}
+
+label.title-1 {
+  font-size: 28pt;
+  font-weight: var(--macux-weight-bold);
+  letter-spacing: var(--macux-tracking-tight);
+}
+
+label.title-2 {
+  font-size: 22pt;
+  font-weight: var(--macux-weight-semibold);
+}
+
+label.title-3 {
+  font-size: 18pt;
+  font-weight: var(--macux-weight-semibold);
+}
+
+label.heading {
+  font-size: var(--macux-font-lg);
+  font-weight: var(--macux-weight-semibold);
+  letter-spacing: var(--macux-tracking-tight);
+}
+
+label.body {
+  font-size: var(--macux-font-size);
+  font-weight: var(--macux-weight-regular);
+}
+
+label.caption-1, label.caption {
+  font-size: var(--macux-font-sm);
+  color: @macux_text_secondary;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+
+button {
+  border-radius: var(--macux-radius-sm);
+  padding: 6px 14px;
+  font-size: var(--macux-font-size);
+  font-weight: var(--macux-weight-medium);
+  border: 1px solid @macux_border;
+  background-color: @macux_bg_secondary;
+  color: @macux_text_primary;
+  transition:
+    background-color var(--macux-dur-fast) var(--macux-ease-out),
+    box-shadow var(--macux-dur-fast) var(--macux-ease-out);
+  min-height: 28px;
+}
+
+button:hover {
+  background-color: @macux_bg_hover;
+  box-shadow: var(--macux-shadow-xs);
+}
+
+button:active {
+  background-color: @macux_bg_active;
+  box-shadow: none;
+}
+
+button:disabled {
+  color: @macux_text_disabled;
+  background-color: @macux_bg_tertiary;
+  border-color: @macux_border;
+  opacity: 0.5;
+}
+
+/* Suggested / primary action button */
+button.suggested-action,
+button.macux-button-primary {
+  background-color: @macux_accent;
+  color: @macux_text_on_accent;
+  border-color: transparent;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.20);
+}
+
+button.suggested-action:hover,
+button.macux-button-primary:hover {
+  background-color: @macux_accent_hover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+button.suggested-action:active,
+button.macux-button-primary:active {
+  background-color: @macux_accent_active;
+  box-shadow: none;
+}
+
+/* Destructive button */
+button.destructive-action {
+  background-color: @macux_destructive;
+  color: #ffffff;
+  border-color: transparent;
+}
+
+button.destructive-action:hover {
+  background-color: @macux_destructive_hover;
+}
+
+/* Flat / icon buttons */
+button.flat,
+button.circular,
+.toolbar button {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  padding: 5px;
+}
+
+button.flat:hover,
+button.circular:hover {
+  background-color: @macux_bg_hover;
+}
+
+button.flat:active,
+button.circular:active {
+  background-color: @macux_bg_active;
+}
+
+/* ── Entry / Search ───────────────────────────────────────────────────────── */
+
+entry,
+searchentry {
+  border-radius: var(--macux-radius-sm);
+  border: 1px solid @macux_border;
+  background-color: @macux_bg_secondary;
+  color: @macux_text_primary;
+  padding: 6px 10px;
+  font-size: var(--macux-font-size);
+  transition:
+    border-color var(--macux-dur-fast) var(--macux-ease-out),
+    box-shadow var(--macux-dur-fast) var(--macux-ease-out);
+  min-height: 32px;
+}
+
+entry:focus,
+searchentry:focus {
+  border-color: @macux_accent;
+  box-shadow: 0 0 0 3px @macux_accent_subtle;
+  outline: none;
+}
+
+entry placeholder,
+searchentry placeholder {
+  color: @macux_text_tertiary;
+}
+
+/* ── ListBox ──────────────────────────────────────────────────────────────── */
+
+listbox {
+  background-color: transparent;
+  border-radius: var(--macux-radius-md);
+}
+
+listbox row {
+  padding: 8px 12px;
+  border-radius: var(--macux-radius-sm);
+  transition: background-color var(--macux-dur-fast) var(--macux-ease-out);
+}
+
+listbox row:hover {
+  background-color: @macux_bg_hover;
+}
+
+listbox row:selected {
+  background-color: @macux_bg_selected;
+  color: @macux_text_primary;
+}
+
+listbox row:selected label {
+  color: @macux_text_primary;
+}
+
+/* ── Scrollbars ───────────────────────────────────────────────────────────── */
+
+scrollbar {
+  background-color: transparent;
+  border: none;
+}
+
+scrollbar slider {
+  background-color: @macux_scrollbar_thumb;
+  border-radius: var(--macux-radius-full);
+  min-width: 6px;
+  min-height: 6px;
+  margin: 2px;
+  transition: background-color var(--macux-dur-fast) var(--macux-ease-out);
+}
+
+scrollbar:hover slider {
+  background-color: @macux_scrollbar_thumb_h;
+  min-width: 8px;
+  min-height: 8px;
+}
+
+scrollbar.vertical {
+  min-width: 10px;
+}
+
+scrollbar.horizontal {
+  min-height: 10px;
+}
+
+/* Hide scrollbar track */
+scrollbar trough {
+  background-color: transparent;
+}
+
+/* ── Separators ───────────────────────────────────────────────────────────── */
+
+separator {
+  background-color: @macux_separator;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+/* ── Popovers ─────────────────────────────────────────────────────────────── */
+
+popover {
+  background-color: @macux_glass_bg_strong;
+  border: 1px solid @macux_glass_border;
+  border-radius: var(--macux-radius-lg);
+  box-shadow: var(--macux-shadow-lg);
+  padding: 6px;
+}
+
+popover > arrow {
+  background-color: @macux_glass_bg_strong;
+  border: 1px solid @macux_glass_border;
+}
+
+/* ── Tooltips ─────────────────────────────────────────────────────────────── */
+
+tooltip {
+  background-color: @macux_bg_primary;
+  color: @macux_text_primary;
+  border: 1px solid @macux_border;
+  border-radius: var(--macux-radius-sm);
+  box-shadow: var(--macux-shadow-md);
+  padding: 4px 10px;
+  font-size: var(--macux-font-sm);
+}
+
+/* ── Switch / Toggle ──────────────────────────────────────────────────────── */
+
+switch {
+  border-radius: var(--macux-radius-full);
+  background-color: @macux_control_toggle_off;
+  min-width: 44px;
+  min-height: 24px;
+  border: none;
+  transition: background-color var(--macux-dur-fast) var(--macux-ease-out);
+}
+
+switch:checked {
+  background-color: @macux_control_toggle_on;
+}
+
+switch slider {
+  background-color: #ffffff;
+  border-radius: var(--macux-radius-full);
+  min-width: 20px;
+  min-height: 20px;
+  margin: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.30);
+  transition: margin var(--macux-dur-fast) var(--macux-ease-spring);
+}
+
+/* ── Slider / Scale ───────────────────────────────────────────────────────── */
+
+scale {
+  min-height: 20px;
+  min-width: 120px;
+}
+
+scale trough {
+  background-color: @macux_control_slider_track;
+  border-radius: var(--macux-radius-full);
+  min-height: 4px;
+}
+
+scale highlight {
+  background-color: @macux_accent;
+  border-radius: var(--macux-radius-full);
+  min-height: 4px;
+}
+
+scale slider {
+  background-color: #ffffff;
+  border-radius: var(--macux-radius-full);
+  min-width: 20px;
+  min-height: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  border: none;
+  transition: transform var(--macux-dur-fast) var(--macux-ease-spring);
+}
+
+scale slider:hover {
+  transform: scale(1.1);
+}
+
+scale slider:active {
+  transform: scale(1.05);
+}
+
+/* ── Progress bar ─────────────────────────────────────────────────────────── */
+
+progressbar trough {
+  background-color: @macux_control_slider_track;
+  border-radius: var(--macux-radius-full);
+  min-height: 4px;
+}
+
+progressbar progress {
+  background-color: @macux_accent;
+  border-radius: var(--macux-radius-full);
+}
+
+/* ── Spinner ──────────────────────────────────────────────────────────────── */
+
+spinner {
+  color: @macux_accent;
+}
+
+/* ── CheckButton / RadioButton ────────────────────────────────────────────── */
+
+checkbutton check,
+radiobutton radio {
+  border: 2px solid @macux_border_strong;
+  border-radius: var(--macux-radius-xs);
+  min-width: 18px;
+  min-height: 18px;
+  background-color: @macux_bg_secondary;
+  transition:
+    background-color var(--macux-dur-fast) var(--macux-ease-out),
+    border-color var(--macux-dur-fast) var(--macux-ease-out);
+}
+
+radiobutton radio {
+  border-radius: var(--macux-radius-full);
+}
+
+checkbutton:checked check,
+radiobutton:checked radio {
+  background-color: @macux_accent;
+  border-color: @macux_accent;
+  color: @macux_text_on_accent;
+}
+
+/* ── HeaderBar ────────────────────────────────────────────────────────────── */
+
+headerbar {
+  background-color: @macux_glass_bg_strong;
+  border-bottom: 1px solid @macux_separator;
+  min-height: 44px;
+  padding: 0 8px;
+}
+
+headerbar .title {
+  font-weight: var(--macux-weight-semibold);
+  font-size: var(--macux-font-size);
+}
+
+/* ── Notebook / Tabs ──────────────────────────────────────────────────────── */
+
+notebook header {
+  background-color: @macux_bg_tertiary;
+  border-bottom: 1px solid @macux_separator;
+  padding: 4px;
+}
+
+notebook tab {
+  border-radius: var(--macux-radius-sm);
+  padding: 4px 16px;
+  margin: 0 2px;
+  transition: background-color var(--macux-dur-fast) var(--macux-ease-out);
+}
+
+notebook tab:checked {
+  background-color: @macux_bg_secondary;
+  box-shadow: var(--macux-shadow-xs);
+}
+
+/* ── Frame ────────────────────────────────────────────────────────────────── */
+
+frame {
+  border: 1px solid @macux_border;
+  border-radius: var(--macux-radius-md);
+  padding: 1px;
+}
+
+/* ── Menu ─────────────────────────────────────────────────────────────────── */
+
+menu,
+.context-menu {
+  background-color: @macux_glass_bg_strong;
+  border: 1px solid @macux_glass_border;
+  border-radius: var(--macux-radius-md);
+  box-shadow: var(--macux-shadow-lg);
+  padding: 4px;
+}
+
+menuitem {
+  border-radius: var(--macux-radius-sm);
+  padding: 5px 12px;
+  min-height: 26px;
+  transition: background-color var(--macux-dur-instant) var(--macux-ease-out);
+}
+
+menuitem:hover {
+  background-color: @macux_accent;
+  color: @macux_text_on_accent;
+}
+
+menuitem separator {
+  margin: 4px 8px;
+}
+
+/* ── Window decorations ───────────────────────────────────────────────────── */
+
+.titlebar .close-button,
+.titlebar .minimize-button,
+.titlebar .maximize-button {
+  min-width: 12px;
+  min-height: 12px;
+  border-radius: var(--macux-radius-full);
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* macOS-style traffic lights */
+.macux-traffic-light-close    { background-color: #ff5f57; }
+.macux-traffic-light-minimize { background-color: #febc2e; }
+.macux-traffic-light-maximize { background-color: #28c840; }
+
+/* ── Focus indicators ─────────────────────────────────────────────────────── */
+
+*:focus-visible {
+  outline: 2px solid @macux_accent;
+  outline-offset: 2px;
+}
+
+/* ── Selection ────────────────────────────────────────────────────────────── */
+
+selection {
+  background-color: @macux_bg_selected;
+  color: @macux_text_primary;
+}
+
+/* ── Adwaita overrides ────────────────────────────────────────────────────── */
+
+.view {
+  background-color: @macux_bg_primary;
+  color: @macux_text_primary;
+}
+
+.sidebar {
+  background-color: @macux_bg_tertiary;
+}
+
+.background {
+  background-color: @macux_bg_primary;
+}

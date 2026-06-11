@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Launchpad
+Comment=Full-screen application launcher
+Exec=python3 -m launchpad
+Icon=macux-launchpad
+Categories=System;
+NoDisplay=true
+StartupNotify=false
+X-GNOME-AutoRestart=true

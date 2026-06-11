@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=MacUX Notification Center
+Comment=Notification history and widgets
+Exec=python3 -m notification_center
+Icon=macux-notification-center
+Categories=System;
+NoDisplay=true
+StartupNotify=false
+X-GNOME-AutoRestart=true

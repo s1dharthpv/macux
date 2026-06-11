@@ -1,0 +1,44 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+ "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/com/macux/ControlCenter">
+  <interface name="com.macux.ControlCenter">
+    <annotation name="org.freedesktop.DBus.Description"
+                value="MacUX Control Center — quick system controls"/>
+
+    <method name="Show"/>
+    <method name="Hide"/>
+    <method name="Toggle"/>
+
+    <method name="GetSystemState">
+      <arg name="state" type="a{sv}" direction="out"/>
+      <!-- {wifi_enabled, wifi_ssid, bluetooth_enabled, volume, brightness,
+            battery_percent, battery_charging, night_light, vpn_active} -->
+    </method>
+
+    <method name="SetWifi">
+      <arg name="enabled" type="b" direction="in"/>
+    </method>
+    <method name="SetBluetooth">
+      <arg name="enabled" type="b" direction="in"/>
+    </method>
+    <method name="SetVolume">
+      <arg name="percent" type="i" direction="in"/>
+    </method>
+    <method name="SetBrightness">
+      <arg name="percent" type="i" direction="in"/>
+    </method>
+    <method name="SetNightLight">
+      <arg name="enabled" type="b" direction="in"/>
+    </method>
+    <method name="SetDoNotDisturb">
+      <arg name="enabled" type="b" direction="in"/>
+    </method>
+
+    <signal name="SystemStateChanged">
+      <arg name="key" type="s"/>
+      <arg name="value" type="v"/>
+    </signal>
+
+    <property name="Visible" type="b" access="read"/>
+  </interface>
+</node>

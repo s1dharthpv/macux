@@ -1,0 +1,48 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+ "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/com/macux/Spotlight">
+  <interface name="com.macux.Spotlight">
+    <annotation name="org.freedesktop.DBus.Description"
+                value="MacUX Spotlight — system-wide search"/>
+
+    <method name="Show"/>
+    <method name="Hide"/>
+    <method name="Toggle"/>
+    <method name="ShowWithQuery">
+      <arg name="query" type="s" direction="in"/>
+    </method>
+
+    <method name="Search">
+      <arg name="query" type="s" direction="in"/>
+      <arg name="categories" type="as" direction="in"/>
+      <arg name="max_results" type="i" direction="in"/>
+      <arg name="results" type="aa{sv}" direction="out"/>
+      <!-- Each result: {type, name, path, icon, score, subtitle} -->
+    </method>
+
+    <method name="RebuildIndex"/>
+    <method name="UpdateIndex">
+      <arg name="path" type="s" direction="in"/>
+    </method>
+    <method name="GetIndexStats">
+      <arg name="stats" type="a{sv}" direction="out"/>
+      <!-- {doc_count, last_updated, index_size_bytes} -->
+    </method>
+
+    <signal name="Shown"/>
+    <signal name="Hidden"/>
+    <signal name="IndexingStarted"/>
+    <signal name="IndexingCompleted">
+      <arg name="doc_count" type="i"/>
+      <arg name="duration_ms" type="i"/>
+    </signal>
+    <signal name="IndexingProgress">
+      <arg name="percent" type="i"/>
+      <arg name="current_path" type="s"/>
+    </signal>
+
+    <property name="Visible" type="b" access="read"/>
+    <property name="Indexing" type="b" access="read"/>
+    <property name="IndexDocCount" type="i" access="read"/>
+  </interface>
+</node>

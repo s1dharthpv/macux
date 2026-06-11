@@ -1,0 +1,21 @@
+[Unit]
+Description=MacUX Notification Center
+Documentation=https://github.com/macux/macux
+PartOf=graphical-session.target
+After=graphical-session.target macux.service
+Requires=dbus.socket
+
+[Service]
+Type=dbus
+BusName=com.macux.NotificationCenter
+ExecStart=python3 -m notification_center
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=10
+Environment=PYTHONUNBUFFERED=1
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=macux-notification-center
+
+[Install]
+WantedBy=graphical-session.target

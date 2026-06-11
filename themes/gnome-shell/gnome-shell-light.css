@@ -1,0 +1,157 @@
+/*
+ * MacUX GNOME Shell CSS — Light Theme
+ * Styles the Menu Bar extension panel (St widgets, not GTK).
+ * Template tokens {{TOKEN}} are replaced by CSSGenerator.build_gnome_shell()
+ *
+ * St CSS reference: https://gjs-docs.gnome.org/st1/
+ * Note: St does not support CSS custom properties (var()), calc() is limited.
+ */
+
+/* ── Menu bar panel ───────────────────────────────────────────────────────── */
+
+#macux-menu-bar {
+  background-color: {{GLASS_BG}};
+  border-bottom: 1px solid {{GLASS_BORDER}};
+  height: 28px;
+  /* St does not support backdrop-filter; glassmorphism is simulated via opacity */
+}
+
+/* ── Apple logo button ────────────────────────────────────────────────────── */
+
+#macux-apple-btn {
+  font-family: {{FONT_FAMILY}};
+  font-size: 14px;
+  color: {{TEXT_PRIMARY}};
+  padding: 0 12px;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+#macux-apple-btn:hover {
+  background-color: {{ACCENT}};
+  color: #ffffff;
+}
+
+/* ── App name label ───────────────────────────────────────────────────────── */
+
+#macux-app-name {
+  font-family: {{FONT_FAMILY}};
+  font-size: 13px;
+  font-weight: bold;
+  color: {{TEXT_PRIMARY}};
+  padding: 0 8px;
+}
+
+/* ── Menu items (in app menu) ─────────────────────────────────────────────── */
+
+.macux-menu-item {
+  font-family: {{FONT_FAMILY}};
+  font-size: 13px;
+  color: {{TEXT_PRIMARY}};
+  padding: 4px 16px;
+  border-radius: 0;
+}
+
+.macux-menu-item:hover,
+.macux-menu-item:focus {
+  background-color: {{ACCENT}};
+  color: #ffffff;
+}
+
+.macux-menu-item:insensitive {
+  color: rgba(29, 29, 31, 0.35);
+}
+
+/* Keyboard shortcut */
+.macux-menu-item .ornament {
+  color: rgba(29, 29, 31, 0.55);
+  font-size: 11px;
+}
+
+.macux-menu-item:hover .ornament {
+  color: rgba(255, 255, 255, 0.70);
+}
+
+/* ── Menu separator ───────────────────────────────────────────────────────── */
+
+.macux-menu-separator {
+  background-color: {{SEPARATOR}};
+  height: 1px;
+  margin: 4px 0;
+}
+
+/* ── Clock ────────────────────────────────────────────────────────────────── */
+
+#macux-clock {
+  font-family: {{FONT_FAMILY}};
+  font-size: 13px;
+  font-weight: 500;
+  color: {{TEXT_PRIMARY}};
+  padding: 0 8px;
+}
+
+/* ── System indicators (right side) ──────────────────────────────────────── */
+
+.macux-indicator {
+  color: {{TEXT_PRIMARY}};
+  padding: 0 7px;
+  font-size: 13px;
+  border-radius: 4px;
+  height: 22px;
+}
+
+.macux-indicator:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.macux-indicator:active,
+.macux-indicator.open {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+/* Battery indicator */
+.macux-indicator-battery { }
+.macux-indicator-battery.warning { color: #ff9500; }
+.macux-indicator-battery.critical { color: #ff3b30; }
+.macux-indicator-battery.charging { color: #34c759; }
+
+/* WiFi indicator */
+.macux-indicator-wifi { }
+.macux-indicator-wifi.disconnected { color: rgba(29, 29, 31, 0.45); }
+
+/* ── Indicator popover/dropdown panels ────────────────────────────────────── */
+
+.macux-indicator-panel {
+  background-color: rgba(240, 240, 242, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 14px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.10);
+  padding: 8px;
+}
+
+/* ── Notification count dot ───────────────────────────────────────────────── */
+
+.macux-notif-dot {
+  background-color: #ff3b30;
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 9px;
+  font-weight: bold;
+  padding: 0 4px;
+  height: 16px;
+}
+
+/* ── Do Not Disturb active state ──────────────────────────────────────────── */
+
+.macux-indicator.dnd-active {
+  color: rgba(29, 29, 31, 0.40);
+}
+
+/* ── Menu bar separator (between sections) ────────────────────────────────── */
+
+.macux-menubar-separator {
+  background-color: {{SEPARATOR}};
+  width: 1px;
+  height: 16px;
+  margin: 0 4px;
+}

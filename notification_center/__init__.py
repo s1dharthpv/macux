@@ -1,0 +1,1 @@
+# MacUX Notification Center package

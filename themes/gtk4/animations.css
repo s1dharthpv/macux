@@ -1,0 +1,272 @@
+/*
+ * MacUX Animation Library
+ * All @keyframes used across MacUX components.
+ * Durations and easings are applied via CSS custom properties from base tokens.
+ */
+
+/* ── Appear / Disappear ───────────────────────────────────────────────────── */
+
+@keyframes macux-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes macux-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes macux-fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes macux-fade-in-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes macux-fade-in-scale {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1.00); }
+}
+
+@keyframes macux-zoom-in {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1.00); }
+}
+
+@keyframes macux-zoom-out {
+  from { opacity: 1; transform: scale(1.00); }
+  to   { opacity: 0; transform: scale(0.85); }
+}
+
+/* ── Slide transitions ────────────────────────────────────────────────────── */
+
+@keyframes macux-slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@keyframes macux-slide-out-right {
+  from { transform: translateX(0);    opacity: 1; }
+  to   { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes macux-slide-in-bottom {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes macux-slide-out-bottom {
+  from { transform: translateY(0);    opacity: 1; }
+  to   { transform: translateY(100%); opacity: 0; }
+}
+
+@keyframes macux-slide-in-top {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+/* ── Dock-specific animations ─────────────────────────────────────────────── */
+
+@keyframes macux-dock-appear {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes macux-dock-hide {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(calc(100% + 8px));
+    opacity: 0;
+  }
+}
+
+/* Icon bounce for app launch */
+@keyframes macux-bounce-launch {
+  0%   { transform: translateY(0)    scale(1.00); }
+  30%  { transform: translateY(-18px) scale(1.08); }
+  50%  { transform: translateY(0)    scale(0.96); }
+  70%  { transform: translateY(-10px) scale(1.04); }
+  85%  { transform: translateY(0)    scale(0.99); }
+  100% { transform: translateY(0)    scale(1.00); }
+}
+
+/* Wiggle for alert/notification */
+@keyframes macux-bounce-alert {
+  0%,  100% { transform: translateY(0); }
+  20%        { transform: translateY(-12px); }
+  40%        { transform: translateY(0); }
+  60%        { transform: translateY(-8px); }
+  80%        { transform: translateY(0); }
+}
+
+/* Icon add: spring scale in */
+@keyframes macux-icon-add {
+  from { transform: scale(0); opacity: 0; }
+  60%  { transform: scale(1.12); opacity: 1; }
+  to   { transform: scale(1.00); opacity: 1; }
+}
+
+/* Icon remove: scale out */
+@keyframes macux-icon-remove {
+  from { transform: scale(1); opacity: 1; }
+  to   { transform: scale(0); opacity: 0; }
+}
+
+/* ── Spotlight ────────────────────────────────────────────────────────────── */
+
+@keyframes macux-spotlight-open {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.00) translateY(0);
+  }
+}
+
+@keyframes macux-spotlight-close {
+  from {
+    opacity: 1;
+    transform: scale(1.00) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.94) translateY(-8px);
+  }
+}
+
+/* ── Launchpad ────────────────────────────────────────────────────────────── */
+
+@keyframes macux-launchpad-open {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes macux-launchpad-icon-in {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.0);
+  }
+}
+
+@keyframes macux-launchpad-icon-out {
+  from {
+    opacity: 1;
+    transform: scale(1.0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+/* ── Notification Center ──────────────────────────────────────────────────── */
+
+@keyframes macux-notif-panel-in {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@keyframes macux-notif-panel-out {
+  from { transform: translateX(0);    opacity: 1; }
+  to   { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes macux-notif-banner-in {
+  from { transform: translateY(-110%) scale(0.95); opacity: 0; }
+  to   { transform: translateY(0)     scale(1.00); opacity: 1; }
+}
+
+@keyframes macux-notif-banner-out {
+  from { transform: translateY(0)     scale(1.00); opacity: 1; }
+  to   { transform: translateX(110%)  scale(0.95); opacity: 0; }
+}
+
+@keyframes macux-notif-card-in {
+  from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)    scale(1.00); }
+}
+
+/* ── Control Center ───────────────────────────────────────────────────────── */
+
+@keyframes macux-control-center-in {
+  from { opacity: 0; transform: scale(0.94) translateY(-8px); }
+  to   { opacity: 1; transform: scale(1.00) translateY(0); }
+}
+
+/* ── Mission Control ──────────────────────────────────────────────────────── */
+
+@keyframes macux-mc-window-in {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1.0); }
+}
+
+@keyframes macux-mc-window-out {
+  from { opacity: 1; transform: scale(1.0); }
+  to   { opacity: 0; transform: scale(0.7); }
+}
+
+/* ── Pulse (loading indicator) ────────────────────────────────────────────── */
+
+@keyframes macux-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* ── Spin (generic spinner) ───────────────────────────────────────────────── */
+
+@keyframes macux-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Utility animation classes ────────────────────────────────────────────── */
+
+.macux-animate-fade-in {
+  animation: macux-fade-in var(--macux-dur-normal) var(--macux-ease-out) both;
+}
+
+.macux-animate-fade-in-up {
+  animation: macux-fade-in-up var(--macux-dur-normal) var(--macux-ease-out) both;
+}
+
+.macux-animate-zoom-in {
+  animation: macux-zoom-in var(--macux-dur-normal) var(--macux-ease-spring) both;
+}
+
+.macux-animate-pulse {
+  animation: macux-pulse 2s ease-in-out infinite;
+}
+
+.macux-animate-spin {
+  animation: macux-spin 1s linear infinite;
+}
+
+.macux-bounce-launch {
+  animation: macux-bounce-launch 600ms var(--macux-ease-out) both;
+}
+
+.macux-bounce-alert {
+  animation: macux-bounce-alert 800ms var(--macux-ease-out);
+}

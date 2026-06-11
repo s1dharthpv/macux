@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Finder
+GenericName=File Manager
+Comment=Browse and manage your files
+Exec=python3 -m finder %u
+Icon=macux-finder
+Categories=System;FileManager;
+MimeType=inode/directory;
+StartupNotify=true
+StartupWMClass=macux-finder
+X-GNOME-DocPath=macux/index.html

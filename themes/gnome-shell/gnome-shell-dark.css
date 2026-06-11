@@ -1,0 +1,124 @@
+/*
+ * MacUX GNOME Shell CSS — Dark Theme
+ * Same structure as light; dark palette applied via {{TOKEN}} substitution.
+ */
+
+#macux-menu-bar {
+  background-color: {{GLASS_BG}};
+  border-bottom: 1px solid {{GLASS_BORDER}};
+  height: 28px;
+}
+
+#macux-apple-btn {
+  font-family: {{FONT_FAMILY}};
+  font-size: 14px;
+  color: {{TEXT_PRIMARY}};
+  padding: 0 12px;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+#macux-apple-btn:hover {
+  background-color: {{ACCENT}};
+  color: #ffffff;
+}
+
+#macux-app-name {
+  font-family: {{FONT_FAMILY}};
+  font-size: 13px;
+  font-weight: bold;
+  color: {{TEXT_PRIMARY}};
+  padding: 0 8px;
+}
+
+.macux-menu-item {
+  font-family: {{FONT_FAMILY}};
+  font-size: 13px;
+  color: {{TEXT_PRIMARY}};
+  padding: 4px 16px;
+  border-radius: 0;
+}
+
+.macux-menu-item:hover,
+.macux-menu-item:focus {
+  background-color: {{ACCENT}};
+  color: #ffffff;
+}
+
+.macux-menu-item:insensitive {
+  color: rgba(245, 245, 247, 0.30);
+}
+
+.macux-menu-item .ornament {
+  color: rgba(245, 245, 247, 0.45);
+  font-size: 11px;
+}
+
+.macux-menu-item:hover .ornament {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.macux-menu-separator {
+  background-color: {{SEPARATOR}};
+  height: 1px;
+  margin: 4px 0;
+}
+
+#macux-clock {
+  font-family: {{FONT_FAMILY}};
+  font-size: 13px;
+  font-weight: 500;
+  color: {{TEXT_PRIMARY}};
+  padding: 0 8px;
+}
+
+.macux-indicator {
+  color: {{TEXT_PRIMARY}};
+  padding: 0 7px;
+  font-size: 13px;
+  border-radius: 4px;
+  height: 22px;
+}
+
+.macux-indicator:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.macux-indicator:active,
+.macux-indicator.open {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.macux-indicator-battery.warning  { color: #ff9f0a; }
+.macux-indicator-battery.critical { color: #ff453a; }
+.macux-indicator-battery.charging { color: #32d74b; }
+.macux-indicator-wifi.disconnected { color: rgba(245, 245, 247, 0.35); }
+
+.macux-indicator-panel {
+  background-color: rgba(36, 36, 38, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.50), 0 2px 8px rgba(0, 0, 0, 0.30);
+  padding: 8px;
+}
+
+.macux-notif-dot {
+  background-color: #ff453a;
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 9px;
+  font-weight: bold;
+  padding: 0 4px;
+  height: 16px;
+}
+
+.macux-indicator.dnd-active {
+  color: rgba(245, 245, 247, 0.35);
+}
+
+.macux-menubar-separator {
+  background-color: {{SEPARATOR}};
+  width: 1px;
+  height: 16px;
+  margin: 0 4px;
+}

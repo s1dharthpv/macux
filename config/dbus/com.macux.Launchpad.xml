@@ -1,0 +1,15 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+ "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/com/macux/Launchpad">
+  <interface name="com.macux.Launchpad">
+    <annotation name="org.freedesktop.DBus.Description"
+                value="MacUX Launchpad — fullscreen application launcher"/>
+    <method name="Show"/>
+    <method name="Hide"/>
+    <method name="Toggle"/>
+    <method name="ReloadApps"/>
+    <signal name="Shown"/>
+    <signal name="Hidden"/>
+    <property name="Visible" type="b" access="read"/>
+  </interface>
+</node>

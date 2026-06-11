@@ -1,0 +1,18 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+ "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/com/macux/Finder">
+  <interface name="com.macux.Finder">
+    <annotation name="org.freedesktop.DBus.Description"
+                value="MacUX Finder — file manager"/>
+    <method name="Open"/>
+    <method name="OpenPath">
+      <arg name="path" type="s" direction="in"/>
+    </method>
+    <method name="NewWindow"/>
+    <method name="RevealFile">
+      <arg name="path" type="s" direction="in"/>
+    </method>
+    <signal name="Opened"/>
+    <property name="ActiveWindows" type="i" access="read"/>
+  </interface>
+</node>

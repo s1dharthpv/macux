@@ -1,0 +1,181 @@
+/*
+ * MacUX Menu Bar CSS
+ * Styles for the GNOME Shell extension panel and GTK4 popover menus.
+ * The extension uses St (Shell Toolkit), not GTK — this CSS targets GTK4
+ * popover windows triggered by menu bar indicators.
+ */
+
+/* ── App menu popover ─────────────────────────────────────────────────────── */
+
+.macux-appmenu-popover {
+  background-color: @macux_glass_bg_strong;
+  border: 1px solid @macux_glass_border;
+  border-radius: var(--macux-radius-md);
+  box-shadow: var(--macux-shadow-lg);
+  padding: 4px 0;
+  min-width: 200px;
+  animation: macux-fade-in-down var(--macux-dur-fast) var(--macux-ease-out) both;
+}
+
+/* Menu item */
+.macux-appmenu-item {
+  padding: 5px 16px;
+  min-height: 26px;
+  border-radius: 0;
+  font-size: var(--macux-font-size);
+  color: @macux_text_primary;
+  transition: background-color var(--macux-dur-instant) var(--macux-ease-out);
+}
+
+.macux-appmenu-item:hover,
+.macux-appmenu-item:selected {
+  background-color: @macux_accent;
+  color: @macux_text_on_accent;
+}
+
+.macux-appmenu-item:disabled {
+  color: @macux_text_disabled;
+}
+
+/* Keyboard shortcut hint */
+.macux-appmenu-item .accel {
+  color: @macux_text_secondary;
+  font-size: var(--macux-font-sm);
+  margin-left: auto;
+  padding-left: var(--macux-space-6);
+}
+
+.macux-appmenu-item:hover .accel,
+.macux-appmenu-item:selected .accel {
+  color: rgba(255, 255, 255, 0.70);
+}
+
+/* Submenu arrow */
+.macux-appmenu-item.has-submenu::after {
+  color: @macux_text_secondary;
+}
+
+/* Separator */
+.macux-appmenu-separator {
+  background-color: @macux_separator;
+  min-height: 1px;
+  margin: 4px 0;
+}
+
+/* Section header inside menu */
+.macux-appmenu-section-label {
+  font-size: 11pt;
+  font-weight: var(--macux-weight-semibold);
+  color: @macux_text_secondary;
+  padding: 6px 16px 3px;
+  letter-spacing: var(--macux-tracking-wide);
+  text-transform: uppercase;
+}
+
+/* ── Indicator popovers (launched from menu bar right side) ───────────────── */
+
+.macux-indicator-popover {
+  background-color: @macux_glass_bg_strong;
+  border: 1px solid @macux_glass_border;
+  border-radius: var(--macux-radius-lg);
+  box-shadow: var(--macux-shadow-xl);
+  padding: var(--macux-space-3);
+  min-width: 280px;
+  animation: macux-fade-in-down var(--macux-dur-fast) var(--macux-ease-out) both;
+}
+
+/* ── User profile popover ─────────────────────────────────────────────────── */
+
+.macux-user-popover {
+  min-width: 220px;
+}
+
+.macux-user-avatar {
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: var(--macux-radius-full);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.20);
+}
+
+.macux-user-name {
+  font-size: var(--macux-font-lg);
+  font-weight: var(--macux-weight-semibold);
+  color: @macux_text_primary;
+}
+
+.macux-user-email {
+  font-size: var(--macux-font-sm);
+  color: @macux_text_secondary;
+}
+
+/* ── WiFi list in indicator ───────────────────────────────────────────────── */
+
+.macux-wifi-network-row {
+  border-radius: var(--macux-radius-sm);
+  padding: 5px 10px;
+  min-height: 32px;
+  transition: background-color var(--macux-dur-fast) var(--macux-ease-out);
+}
+
+.macux-wifi-network-row:hover {
+  background-color: @macux_bg_hover;
+}
+
+.macux-wifi-network-row.connected {
+  color: @macux_accent;
+}
+
+.macux-wifi-signal-icon {
+  color: @macux_text_secondary;
+  min-width: 16px;
+}
+
+.macux-wifi-signal-icon.connected {
+  color: @macux_accent;
+}
+
+/* ── Clock/calendar in menu bar ───────────────────────────────────────────── */
+
+.macux-clock-popover {
+  min-width: 260px;
+  padding: var(--macux-space-4);
+}
+
+.macux-clock-big {
+  font-size: 48pt;
+  font-weight: var(--macux-weight-light);
+  color: @macux_text_primary;
+  letter-spacing: var(--macux-tracking-tight);
+}
+
+.macux-clock-date-big {
+  font-size: 14pt;
+  color: @macux_text_secondary;
+  margin-top: -4px;
+}
+
+/* ── Bluetooth device list ────────────────────────────────────────────────── */
+
+.macux-bt-device-row {
+  border-radius: var(--macux-radius-sm);
+  padding: 6px 10px;
+  min-height: 36px;
+}
+
+.macux-bt-device-row:hover {
+  background-color: @macux_bg_hover;
+}
+
+.macux-bt-device-name {
+  font-size: var(--macux-font-size);
+  color: @macux_text_primary;
+}
+
+.macux-bt-device-type {
+  font-size: var(--macux-font-sm);
+  color: @macux_text_secondary;
+}
+
+.macux-bt-device-row.connected .macux-bt-device-name {
+  color: @macux_accent;
+}
