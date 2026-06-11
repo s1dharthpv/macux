@@ -5,7 +5,7 @@ from typing import Any
 
 from dasbus.connection import SessionMessageBus
 from dasbus.server.interface import dbus_interface, dbus_signal
-from dasbus.typing import Str, Bool, Variant
+from dasbus.typing import Dict, Str, Bool, Variant
 
 from macuxd.config import ConfigManager
 from macuxd.watchdog import ComponentWatchdog, ComponentState
@@ -126,7 +126,7 @@ class MacuxDaemonInterface:
         pass
 
     @dbus_signal
-    def SystemEvent(self, category: Str, event: Str, data: dict) -> None:
+    def SystemEvent(self, category: Str, event: Str, data: Dict[Str, Variant]) -> None:
         pass
 
 

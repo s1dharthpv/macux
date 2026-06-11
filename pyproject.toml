@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.backends.legacy:build"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "macux"
@@ -58,6 +58,8 @@ include = [
     "notification_center*",
     "control_center*",
     "finder*",
+    "themes*",
+    "packaging*",
 ]
 
 [tool.black]
